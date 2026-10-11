@@ -201,7 +201,7 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 <div class="title-wrap">
 <div class="eyebrow">PERSONAL CONSTELLATION</div>
 <h1>个人星图</h1>
-<p class="subtitle">公开作品、技术兴趣、游戏与影视动漫偏好组成的可探索主页；不展示当前工作、进度和私人安排</p>
+<p class="subtitle">公开作品、技术兴趣、游戏、影视动漫与学习兴趣组成的可探索星图</p>
 </div>
 <div aria-label="页面工具" class="toolbar">
 <div class="search-shell">
@@ -311,7 +311,7 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 </div>
 <div class="graph-footer">
 <span id="statusText">拖动节点 · 靠近细点发现内容 · 左键进入 · 右键看详情</span>
-<span>v19 · 右侧本地 LLM / 公开资料模式 / 隐私收敛</span>
+<span>v20 · 公开星图 / 互动探索</span>
 </div>
 </main>
 <aside class="right-panel panel side-dock">
@@ -355,11 +355,11 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 </div>
 </header>
 <div class="twin-privacy-card">
-<strong>公开事实 + 本地风格样本</strong>
-<span>公开星图只提供事实；筛选后的本地对话只用于学习表达和判断方式，不会作为新的个人事实。</span>
+<strong>数字分身 · 本地版功能</strong>
+<span>公开网页只展示星图；完整数字分身在本地版本中连接 Ollama 运行。</span>
 </div>
 <div class="twin-toolbar">
-<label class="twin-model-field"><span>本地模型</span><select id="twinModelSelect"><option value="">正在检测 Ollama…</option></select></label>
+<label class="twin-model-field"><span>本地模型</span><select id="twinModelSelect"><option value="">本地版可用</option></select></label>
 <button class="mini-action twin-clear" id="twinClearBtn" type="button">清空对话</button>
 </div>
 <div class="twin-context-bar"><span>当前上下文</span><button id="twinContextBtn" type="button">个人星图</button></div>
@@ -375,8 +375,8 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 <textarea id="twinInput" maxlength="1600" placeholder="使用本地 Ollama 模型提问…" rows="1"></textarea>
 <button aria-label="发送" class="twin-send" disabled="" id="twinSendBtn" type="submit">↑</button>
 </form>
-<div class="twin-setup-hint" id="twinSetupHint">请使用 <code>run_local.bat</code> 启动页面，并确保 Ollama 已安装至少一个模型。</div>
-<p class="twin-local-note">聊天只保留在当前页面会话中；风格样本仅存本机，并被 Git 忽略。</p>
+<div class="twin-setup-hint" id="twinSetupHint">数字分身需要本地版本与 Ollama；公开网页不会连接访问者的本机服务。</div>
+<p class="twin-local-note">公开网页不加载本地对话样本或私人数据。</p>
 </section>
 </section>
 </aside>
@@ -484,7 +484,7 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 })(window.PersonalWeb = window.PersonalWeb || {});
 </script>
 <script>(function(PW){
-  PW.Data = { ROOT: {"id": "home", "label": "个人星图", "note": "公开作品 / 技术兴趣 / 游戏 / 影视动漫 / 学习兴趣", "desc": "这是一个公开版个人主页，只展示适合公开的作品、兴趣与方向；不展示当前工作安排、内部项目、具体进度或私人日程。", "facts": ["公开内容优先", "隐私信息不进入前端数据", "本地 LLM 只读取公开星图", "左键进入，右键查看详情"], "children": [{"id": "projects", "label": "公开作品", "note": "已经公开或适合公开介绍的内容", "desc": "这里只保留已经公开、适合展示的作品概览，不提供正在做什么、做到哪一步或下一步计划。", "facts": ["不显示进行中状态", "不显示内部计划", "不显示真实使用数据"], "children": [{"id": "acfv", "label": "ACFV", "note": "AI 辅助视频切片工具", "desc": "一个面向长视频的公开工具概念，结合语音转写、内容筛选与片段导出。", "facts": ["语音转写", "内容筛选", "片段导出"], "children": [{"id": "acfv_pipeline", "label": "处理流程", "note": "转写 → 筛选 → 导出", "desc": "把长视频整理成可检索、可筛选并可导出的片段流程。", "facts": ["分阶段处理", "自动化流程"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/acfv_pipeline.svg", "keywords": ["ACFV", "个人星图", "公开作品", "分阶段处理", "处理流程", "把长视频整理成可检索、可筛选并可导出的片段流程。", "自动化流程", "转写 → 筛选 → 导出"]}, {"id": "acfv_export", "label": "结果导出", "note": "批量生成片段", "desc": "将选中的时间区间输出为独立片段，方便后续使用。", "facts": ["批量导出", "片段管理"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/acfv_export.svg", "keywords": ["ACFV", "个人星图", "公开作品", "将选中的时间区间输出为独立片段，方便后续使用。", "批量导出", "批量生成片段", "片段管理", "结果导出"]}], "type": "group", "quote": "", "meta": {"kind": "公开工具", "stack": ["Python", "ASR", "Video"]}, "family": "projects", "depth": 2, "asset": "assets/nodes/acfv.svg", "keywords": ["ACFV", "AI 辅助视频切片工具", "一个面向长视频的公开工具概念，结合语音转写、内容筛选与片段导出。", "个人星图", "公开作品", "内容筛选", "片段导出", "语音转写"]}, {"id": "ctcp", "label": "CTCP", "note": "可探索的图状界面", "desc": "一个公开的图状交互实验，以节点、连线和多层进入方式呈现内容。", "facts": ["可拖动节点", "多层进入", "关系可视化"], "children": [{"id": "ctcp_web", "label": "交互图谱", "note": "拖动、点击与探索", "desc": "通过节点与连线浏览内容，而不是传统列表。", "facts": ["图谱交互", "关系浏览"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_web.svg", "keywords": ["CTCP", "个人星图", "交互图谱", "公开作品", "关系浏览", "图谱交互", "拖动、点击与探索", "通过节点与连线浏览内容，而不是传统列表。"]}, {"id": "ctcp_stars", "label": "星空视觉", "note": "暗色、漂浮与呼吸", "desc": "使用星点、微光和缓慢运动形成夜空感。", "facts": ["星空", "轻微呼吸"], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_stars.svg", "keywords": ["CTCP", "个人星图", "使用星点、微光和缓慢运动形成夜空感。", "公开作品", "星空", "星空视觉", "暗色、漂浮与呼吸", "轻微呼吸"]}, {"id": "ctcp_layers", "label": "层级展开", "note": "从大类进入细节", "desc": "不同层级用大小、边框与小星点表达。", "facts": ["多层结构", "层级可见"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_layers.svg", "keywords": ["CTCP", "不同层级用大小、边框与小星点表达。", "个人星图", "从大类进入细节", "公开作品", "多层结构", "层级可见", "层级展开"]}], "type": "group", "quote": "", "meta": {"kind": "公开实验", "stack": ["Python", "Graph UI"]}, "family": "projects", "depth": 2, "asset": "assets/nodes/ctcp.svg", "keywords": ["CTCP", "一个公开的图状交互实验，以节点、连线和多层进入方式呈现内容。", "个人星图", "公开作品", "关系可视化", "可拖动节点", "可探索的图状界面", "多层进入"]}], "type": "category", "quote": "", "family": "projects", "depth": 1, "asset": "assets/nodes/projects.svg", "keywords": ["不显示内部计划", "不显示真实使用数据", "不显示进行中状态", "个人星图", "公开作品", "已经公开或适合公开介绍的内容", "这里只保留已经公开、适合展示的作品概览，不提供正在做什么、做到哪一步或下一步计划。"]}, {"id": "tech", "label": "技术兴趣", "note": "公开展示的技术方向", "desc": "只展示高层技术兴趣，不暴露具体设备、部署结构、内部方案或未公开工程细节。", "facts": ["LLM / Agent", "多模态", "计算机视觉", "系统工程"], "children": [{"id": "llm", "label": "LLM / Agent", "note": "交互、工具与上下文", "desc": "关注大语言模型如何连接工具、上下文和交互界面。", "facts": ["工具调用", "上下文管理", "交互策略"], "children": [{"id": "llm_clarify", "label": "适时提问", "note": "什么时候该问", "desc": "让系统在必要时提问，同时避免无意义地打断用户。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_clarify.svg", "keywords": ["LLM / Agent", "个人星图", "什么时候该问", "技术兴趣", "让系统在必要时提问，同时避免无意义地打断用户。", "适时提问"]}, {"id": "llm_memory", "label": "上下文管理", "note": "保留真正有用的信息", "desc": "关注长期交互中信息如何被整理与调用。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_memory.svg", "keywords": ["LLM / Agent", "上下文管理", "个人星图", "保留真正有用的信息", "关注长期交互中信息如何被整理与调用。", "技术兴趣"]}, {"id": "llm_local", "label": "本地模型", "note": "数据留在本机", "desc": "使用本机模型提供页面问答，避免把页面资料发送到云端。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_local.svg", "keywords": ["LLM / Agent", "个人星图", "使用本机模型提供页面问答，避免把页面资料发送到云端。", "技术兴趣", "数据留在本机", "本地模型"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/llm.svg", "keywords": ["LLM / Agent", "上下文管理", "个人星图", "交互、工具与上下文", "交互策略", "关注大语言模型如何连接工具、上下文和交互界面。", "工具调用", "技术兴趣"]}, {"id": "local_twin", "label": "本地 LLM 分身", "note": "Ollama / 公开资料 / 隐私保护", "desc": "运行在右侧栏的本地模型导览助手，只能读取公开版星图内容，不提供当前工作、进度、日程或其他私人信息。", "facts": ["必须连接本地 Ollama", "不提供规则库假回答", "会拒绝隐私问题"], "children": [], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/local_twin.svg", "keywords": ["Ollama / 公开资料 / 隐私保护", "不提供规则库假回答", "个人星图", "会拒绝隐私问题", "必须连接本地 Ollama", "技术兴趣", "本地 LLM 分身", "运行在右侧栏的本地模型导览助手，只能读取公开版星图内容，不提供当前工作、进度、日程或其他私人信息。"]}, {"id": "multimodal", "label": "多模态", "note": "图像、视频与音频", "desc": "关注不同媒体信号如何共同支持理解。", "facts": ["图像", "音频", "视频"], "children": [{"id": "mm_video", "label": "视频理解", "note": "时序与事件", "desc": "把视频看作连续事件，而不是单独图片。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_video.svg", "keywords": ["个人星图", "多模态", "技术兴趣", "把视频看作连续事件，而不是单独图片。", "时序与事件", "视频理解"]}, {"id": "mm_audio", "label": "音频转写", "note": "语音与字幕", "desc": "将音频转成可检索文本。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_audio.svg", "keywords": ["个人星图", "多模态", "将音频转成可检索文本。", "技术兴趣", "语音与字幕", "音频转写"]}, {"id": "mm_scene", "label": "场景语义", "note": "画面在发生什么", "desc": "从目标识别进一步走向场景与行为理解。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_scene.svg", "keywords": ["个人星图", "从目标识别进一步走向场景与行为理解。", "场景语义", "多模态", "技术兴趣", "画面在发生什么"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/multimodal.svg", "keywords": ["个人星图", "关注不同媒体信号如何共同支持理解。", "图像", "图像、视频与音频", "多模态", "技术兴趣", "视频", "音频"]}, {"id": "cv", "label": "计算机视觉", "note": "检测、场景与状态", "desc": "关注视觉信息如何变成可用于系统的结构化结果。", "facts": ["目标检测", "状态判断", "语义理解"], "children": [{"id": "cv_detect", "label": "目标检测", "note": "识别画面元素", "desc": "定位与识别视觉对象。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_detect.svg", "keywords": ["个人星图", "定位与识别视觉对象。", "技术兴趣", "目标检测", "计算机视觉", "识别画面元素"]}, {"id": "cv_state", "label": "状态判断", "note": "理解当前画面", "desc": "结合上下文判断场景状态。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_state.svg", "keywords": ["个人星图", "技术兴趣", "状态判断", "理解当前画面", "结合上下文判断场景状态。", "计算机视觉"]}, {"id": "cv_sem", "label": "语义理解", "note": "从像素到含义", "desc": "将视觉结果连接到更高层语义。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_sem.svg", "keywords": ["个人星图", "从像素到含义", "将视觉结果连接到更高层语义。", "技术兴趣", "计算机视觉", "语义理解"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/cv.svg", "keywords": ["个人星图", "关注视觉信息如何变成可用于系统的结构化结果。", "技术兴趣", "检测、场景与状态", "状态判断", "目标检测", "计算机视觉", "语义理解"]}, {"id": "systems", "label": "系统工程", "note": "结构、性能与交互", "desc": "关注程序结构、稳定性和交互体验。", "facts": ["模块化", "性能", "可维护性"], "children": [{"id": "sys_arch", "label": "程序结构", "note": "模块清晰", "desc": "将数据、布局、物理与界面分开维护。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_arch.svg", "keywords": ["个人星图", "将数据、布局、物理与界面分开维护。", "技术兴趣", "模块清晰", "程序结构", "系统工程"]}, {"id": "sys_perf", "label": "性能与稳定", "note": "持续运行", "desc": "减少不必要计算并保持交互顺滑。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_perf.svg", "keywords": ["个人星图", "减少不必要计算并保持交互顺滑。", "性能与稳定", "技术兴趣", "持续运行", "系统工程"]}, {"id": "sys_ui", "label": "交互实现", "note": "视觉与操作一致", "desc": "让界面表现和用户操作相互配合。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_ui.svg", "keywords": ["个人星图", "交互实现", "技术兴趣", "系统工程", "视觉与操作一致", "让界面表现和用户操作相互配合。"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/systems.svg", "keywords": ["个人星图", "关注程序结构、稳定性和交互体验。", "可维护性", "性能", "技术兴趣", "模块化", "系统工程", "结构、性能与交互"]}], "type": "category", "quote": "", "family": "tech", "depth": 1, "asset": "assets/nodes/tech.svg", "keywords": ["LLM / Agent", "个人星图", "公开展示的技术方向", "只展示高层技术兴趣，不暴露具体设备、部署结构、内部方案或未公开工程细节。", "多模态", "技术兴趣", "系统工程", "计算机视觉"]}, {"id": "game_pref", "label": "游戏偏好", "note": "公开作品与玩法倾向", "desc": "展示适合公开的游戏作品名和玩法偏好。", "facts": ["英雄射击", "战术射击", "构筑系统", "推理解谜"], "children": [{"id": "ow", "label": "Overwatch", "note": "英雄射击 / 团战结构", "desc": "偏好角色职责清晰、强调空间和团队配合的多人对抗。", "facts": [], "children": [{"id": "ow_tank", "label": "坦克定位", "note": "改变交战结构", "desc": "关注能够塑造战场空间的角色。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_tank.svg", "keywords": ["Overwatch", "个人星图", "关注能够塑造战场空间的角色。", "坦克定位", "改变交战结构", "游戏", "游戏偏好"]}, {"id": "ow_space", "label": "空间控制", "note": "位置与压制", "desc": "站位与范围会直接改变团战。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_space.svg", "keywords": ["Overwatch", "个人星图", "位置与压制", "游戏", "游戏偏好", "空间控制", "站位与范围会直接改变团战。"]}, {"id": "ow_team", "label": "团队配合", "note": "职责与阵型", "desc": "不同角色共同形成完整战斗结构。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_team.svg", "keywords": ["Overwatch", "不同角色共同形成完整战斗结构。", "个人星图", "团队配合", "游戏", "游戏偏好", "职责与阵型"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/ow.svg", "keywords": ["Overwatch", "个人星图", "偏好角色职责清晰、强调空间和团队配合的多人对抗。", "游戏", "游戏偏好", "英雄射击 / 团战结构"]}, {"id": "cs2", "label": "Counter-Strike", "note": "射击 / 信息 / 节奏", "desc": "喜欢规则直接、信息价值高、判断与操作并重的战术射击。", "facts": [], "children": [{"id": "cs2_info", "label": "信息判断", "note": "听、看与推断", "desc": "有限信息会直接影响决策。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_info.svg", "keywords": ["Counter-Strike", "个人星图", "信息判断", "听、看与推断", "有限信息会直接影响决策。", "游戏", "游戏偏好"]}, {"id": "cs2_tempo", "label": "对局节奏", "note": "推进与回防", "desc": "回合节奏清晰且变化明显。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_tempo.svg", "keywords": ["Counter-Strike", "个人星图", "回合节奏清晰且变化明显。", "对局节奏", "推进与回防", "游戏", "游戏偏好"]}, {"id": "cs2_clean", "label": "清晰规则", "note": "目标直接", "desc": "目标与胜负条件足够明确。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_clean.svg", "keywords": ["Counter-Strike", "个人星图", "清晰规则", "游戏", "游戏偏好", "目标与胜负条件足够明确。", "目标直接"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/cs2.svg", "keywords": ["Counter-Strike", "个人星图", "喜欢规则直接、信息价值高、判断与操作并重的战术射击。", "射击 / 信息 / 节奏", "游戏", "游戏偏好"]}, {"id": "slay", "label": "Slay the Spire", "note": "构筑 / 局内成长", "desc": "偏好系统之间能形成联动、每局路线和构筑不同的玩法。", "facts": [], "children": [{"id": "slay_build", "label": "构筑联动", "note": "卡牌与遗物", "desc": "系统组合会改变整局方向。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_build.svg", "keywords": ["Slay the Spire", "个人星图", "卡牌与遗物", "构筑联动", "游戏", "游戏偏好", "系统组合会改变整局方向。"]}, {"id": "slay_route", "label": "路线选择", "note": "路径也是决策", "desc": "路线本身带来资源与风险取舍。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_route.svg", "keywords": ["Slay the Spire", "个人星图", "游戏", "游戏偏好", "路径也是决策", "路线本身带来资源与风险取舍。", "路线选择"]}, {"id": "slay_replay", "label": "重玩性", "note": "每局不同", "desc": "相同规则能产生不同组合。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_replay.svg", "keywords": ["Slay the Spire", "个人星图", "每局不同", "游戏", "游戏偏好", "相同规则能产生不同组合。", "重玩性"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/slay.svg", "keywords": ["Slay the Spire", "个人星图", "偏好系统之间能形成联动、每局路线和构筑不同的玩法。", "构筑 / 局内成长", "游戏", "游戏偏好"]}, {"id": "obra", "label": "Return of the Obra Dinn", "note": "推理 / 重解读", "desc": "喜欢需要拼接线索并重新理解前文的推理结构。", "facts": [], "children": [{"id": "obra_clues", "label": "线索拼接", "note": "逐步建立结构", "desc": "信息不会一次给全。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_clues.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "信息不会一次给全。", "游戏", "游戏偏好", "线索拼接", "逐步建立结构"]}, {"id": "obra_reframe", "label": "重新理解", "note": "后文改变前文", "desc": "新信息会改变之前的判断。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_reframe.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "后文改变前文", "新信息会改变之前的判断。", "游戏", "游戏偏好", "重新理解"]}, {"id": "obra_map", "label": "关系结构", "note": "在脑中形成图谱", "desc": "人物、事件和线索逐渐连接。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_map.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "人物、事件和线索逐渐连接。", "关系结构", "在脑中形成图谱", "游戏", "游戏偏好"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/obra.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "喜欢需要拼接线索并重新理解前文的推理结构。", "推理 / 重解读", "游戏", "游戏偏好"]}], "type": "category", "quote": "", "family": "game_pref", "depth": 1, "asset": "assets/nodes/game_pref.svg", "keywords": ["个人星图", "公开作品与玩法倾向", "展示适合公开的游戏作品名和玩法偏好。", "战术射击", "推理解谜", "构筑系统", "游戏", "游戏偏好", "英雄射击"]}, {"id": "media", "label": "影视动漫偏好", "note": "公开作品与审美倾向", "desc": "展示适合公开的作品名，以及角色、音乐和视觉方面的偏好。", "facts": ["网络动画", "角色关系", "音乐叙事", "同人社区"], "children": [{"id": "helluva", "label": "Helluva Boss", "note": "音乐 / 角色关系 / 网络动画", "desc": "会关注音乐如何参与叙事，以及角色关系如何持续变化。", "facts": [], "children": [{"id": "helluva_music", "label": "音乐段落", "note": "歌曲参与叙事", "desc": "歌曲会直接承担情绪与剧情表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_music.svg", "keywords": ["Helluva Boss", "个人星图", "影视动漫", "影视动漫偏好", "歌曲会直接承担情绪与剧情表达。", "歌曲参与叙事", "音乐段落"]}, {"id": "helluva_rel", "label": "角色关系", "note": "关系持续变化", "desc": "关系不会简单归零，而是不断改变。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_rel.svg", "keywords": ["Helluva Boss", "个人星图", "关系不会简单归零，而是不断改变。", "关系持续变化", "影视动漫", "影视动漫偏好", "角色关系"]}, {"id": "helluva_style", "label": "风格识别", "note": "视觉气质鲜明", "desc": "作品整体具有强烈辨识度。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_style.svg", "keywords": ["Helluva Boss", "个人星图", "作品整体具有强烈辨识度。", "影视动漫", "影视动漫偏好", "视觉气质鲜明", "风格识别"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/helluva.svg", "keywords": ["Helluva Boss", "个人星图", "会关注音乐如何参与叙事，以及角色关系如何持续变化。", "影视动漫", "影视动漫偏好", "音乐 / 角色关系 / 网络动画"]}, {"id": "digital", "label": "The Amazing Digital Circus", "note": "角色设计 / 气质 / Jax", "desc": "会被鲜明角色设计、明亮表面下的不安感和强存在感角色吸引。", "facts": [], "children": [{"id": "digital_char", "label": "角色设计", "note": "轮廓与气质", "desc": "角色需要有明确辨识度。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_char.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "影视动漫", "影视动漫偏好", "角色设计", "角色需要有明确辨识度。", "轮廓与气质"]}, {"id": "digital_mood", "label": "明亮与不安", "note": "表层和内里反差", "desc": "轻微不安感会增加层次。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_mood.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "影视动漫", "影视动漫偏好", "明亮与不安", "表层和内里反差", "轻微不安感会增加层次。"]}, {"id": "digital_jax", "label": "Jax", "note": "存在感强", "desc": "有摩擦感的角色更容易留下印象。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_jax.svg", "keywords": ["Jax", "The Amazing Digital Circus", "个人星图", "存在感强", "影视动漫", "影视动漫偏好", "有摩擦感的角色更容易留下印象。"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/digital.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "会被鲜明角色设计、明亮表面下的不安感和强存在感角色吸引。", "影视动漫", "影视动漫偏好", "角色设计 / 气质 / Jax"]}, {"id": "mlp", "label": "MLP Fan Works", "note": "同人 / 长期社区", "desc": "关注作品如何在社区中继续扩写与变化。", "facts": [], "children": [{"id": "mlp_fan", "label": "同人延展", "note": "世界继续生长", "desc": "官方内容之外仍能产生新的故事。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_fan.svg", "keywords": ["MLP Fan Works", "世界继续生长", "个人星图", "同人延展", "官方内容之外仍能产生新的故事。", "影视动漫", "影视动漫偏好"]}, {"id": "mlp_comm", "label": "长期社区", "note": "持续创作", "desc": "长期更新让作品保持活力。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_comm.svg", "keywords": ["MLP Fan Works", "个人星图", "影视动漫", "影视动漫偏好", "持续创作", "长期更新让作品保持活力。", "长期社区"]}, {"id": "mlp_world", "label": "共同创作", "note": "持续变化的生态", "desc": "作品逐渐形成更大的社区文化。", "facts": [], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_world.svg", "keywords": ["MLP Fan Works", "个人星图", "作品逐渐形成更大的社区文化。", "共同创作", "影视动漫", "影视动漫偏好", "持续变化的生态"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/mlp.svg", "keywords": ["MLP Fan Works", "个人星图", "关注作品如何在社区中继续扩写与变化。", "同人 / 长期社区", "影视动漫", "影视动漫偏好"]}, {"id": "bgpony", "label": "Background Pony", "note": "长篇同人 / 英语阅读", "desc": "长篇故事同时连接作品兴趣和英语阅读。", "facts": [], "children": [{"id": "bgpony_long", "label": "长篇阅读", "note": "持续投入", "desc": "长篇内容能积累更强的投入感。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_long.svg", "keywords": ["Background Pony", "个人星图", "影视动漫", "影视动漫偏好", "持续投入", "长篇内容能积累更强的投入感。", "长篇阅读"]}, {"id": "bgpony_psy", "label": "角色心理", "note": "人物内部", "desc": "相比设定，更关注角色内部变化。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_psy.svg", "keywords": ["Background Pony", "个人星图", "人物内部", "影视动漫", "影视动漫偏好", "相比设定，更关注角色内部变化。", "角色心理"]}, {"id": "bgpony_eng", "label": "英语阅读", "note": "兴趣驱动", "desc": "喜欢的内容更容易支持长期阅读。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_eng.svg", "keywords": ["Background Pony", "个人星图", "兴趣驱动", "喜欢的内容更容易支持长期阅读。", "影视动漫", "影视动漫偏好", "英语阅读"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/bgpony.svg", "keywords": ["Background Pony", "个人星图", "影视动漫", "影视动漫偏好", "长篇同人 / 英语阅读", "长篇故事同时连接作品兴趣和英语阅读。"]}, {"id": "tamers", "label": "Tamers12345", "note": "音乐 / 角色设计 / 网络作品", "desc": "会关注小型网络作品中鲜明的音乐、角色与个体风格。", "facts": [], "children": [{"id": "tamers_music", "label": "音乐", "note": "作品气质的一部分", "desc": "音乐会成为作品的重要记忆点。", "facts": [], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_music.svg", "keywords": ["Tamers12345", "个人星图", "作品气质的一部分", "影视动漫", "影视动漫偏好", "音乐", "音乐会成为作品的重要记忆点。"]}, {"id": "tamers_design", "label": "角色设计", "note": "形象辨识度", "desc": "角色形象本身就能成为吸引点。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_design.svg", "keywords": ["Tamers12345", "个人星图", "形象辨识度", "影视动漫", "影视动漫偏好", "角色形象本身就能成为吸引点。", "角色设计"]}, {"id": "tamers_web", "label": "网络作品感", "note": "小而明确", "desc": "小型创作更容易保留独特气质。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_web.svg", "keywords": ["Tamers12345", "个人星图", "小型创作更容易保留独特气质。", "小而明确", "影视动漫", "影视动漫偏好", "网络作品感"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/tamers.svg", "keywords": ["Tamers12345", "个人星图", "会关注小型网络作品中鲜明的音乐、角色与个体风格。", "影视动漫", "影视动漫偏好", "音乐 / 角色设计 / 网络作品"]}], "type": "category", "quote": "", "family": "media", "depth": 1, "asset": "assets/nodes/media.svg", "keywords": ["个人星图", "公开作品与审美倾向", "同人社区", "展示适合公开的作品名，以及角色、音乐和视觉方面的偏好。", "影视动漫", "影视动漫偏好", "网络动画", "角色关系", "音乐叙事"]}, {"id": "learning", "label": "学习兴趣", "note": "公开展示的宽泛方向", "desc": "只展示宽泛学习兴趣，不公开考试安排、课程进度、薄弱项或日常计划。", "facts": ["计算机基础", "英语阅读", "绘画与音乐"], "children": [{"id": "foundations", "label": "基础学习", "note": "计算机 / 数学 / 英语", "desc": "持续补充通用基础，但不在公开页面展示具体考试目标与进度。", "facts": [], "children": [{"id": "math_foundation", "label": "数学基础", "note": "方法与计算", "desc": "关注基本方法与计算稳定性。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/math_foundation.svg", "keywords": ["个人星图", "关注基本方法与计算稳定性。", "基础学习", "学习兴趣", "数学基础", "方法与计算"]}, {"id": "english_reading", "label": "英语阅读", "note": "长篇与语境", "desc": "通过真实内容积累阅读能力。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/english_reading.svg", "keywords": ["个人星图", "基础学习", "学习兴趣", "英语阅读", "通过真实内容积累阅读能力。", "长篇与语境"]}, {"id": "cs_foundation", "label": "计算机基础", "note": "系统与网络", "desc": "关注计算机系统和网络基础。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/cs_foundation.svg", "keywords": ["个人星图", "关注计算机系统和网络基础。", "基础学习", "学习兴趣", "系统与网络", "计算机基础"]}], "type": "group", "quote": "", "family": "learning", "depth": 2, "asset": "assets/nodes/foundations.svg", "keywords": ["个人星图", "基础学习", "学习兴趣", "持续补充通用基础，但不在公开页面展示具体考试目标与进度。", "计算机 / 数学 / 英语"]}, {"id": "art", "label": "绘画与音乐", "note": "创作基础", "desc": "将绘画、音乐理论和作品分析作为长期兴趣。", "facts": [], "children": [{"id": "art_draw", "label": "绘画", "note": "结构与表达", "desc": "练习基础结构和视觉表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_draw.svg", "keywords": ["个人星图", "学习兴趣", "练习基础结构和视觉表达。", "结构与表达", "绘画", "绘画与音乐"]}, {"id": "art_music", "label": "音乐理论", "note": "和弦与节奏", "desc": "理解作品中的和声、节奏与结构。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_music.svg", "keywords": ["个人星图", "和弦与节奏", "学习兴趣", "理解作品中的和声、节奏与结构。", "绘画与音乐", "音乐理论"]}, {"id": "art_style", "label": "审美积累", "note": "角色与作品分析", "desc": "从喜欢的作品中观察设计与表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_style.svg", "keywords": ["个人星图", "从喜欢的作品中观察设计与表达。", "学习兴趣", "审美积累", "绘画与音乐", "角色与作品分析"]}], "type": "group", "quote": "", "family": "learning", "depth": 2, "asset": "assets/nodes/art.svg", "keywords": ["个人星图", "创作基础", "学习兴趣", "将绘画、音乐理论和作品分析作为长期兴趣。", "绘画与音乐"]}], "type": "category", "quote": "", "family": "learning", "depth": 1, "asset": "assets/nodes/learning.svg", "keywords": ["个人星图", "公开展示的宽泛方向", "只展示宽泛学习兴趣，不公开考试安排、课程进度、薄弱项或日常计划。", "学习兴趣", "绘画与音乐", "英语阅读", "计算机基础"]}], "type": "root", "quote": "", "family": "home", "depth": 0, "asset": "assets/nodes/home.svg", "keywords": ["个人星图", "主页", "公开作品 / 技术兴趣 / 游戏 / 影视动漫 / 学习兴趣", "公开内容优先", "左键进入，右键查看详情", "本地 LLM 只读取公开星图", "这是一个公开版个人主页，只展示适合公开的作品、兴趣与方向；不展示当前工作安排、内部项目、具体进度或私人日程。", "隐私信息不进入前端数据"]}, EXTRA_LINKS: [["acfv", "multimodal"], ["acfv_pipeline", "mm_audio"], ["ctcp_web", "sys_ui"], ["ctcp_layers", "sys_arch"], ["local_twin", "llm_local"], ["local_twin", "llm_memory"], ["cs2_info", "cv_state"], ["slay_build", "sys_arch"], ["obra_reframe", "bgpony_psy"], ["bgpony_eng", "english_reading"], ["tamers_music", "art_music"], ["tamers_design", "digital_char"], ["mlp_world", "tamers_web"]], RELATIONS: {"acfv::multimodal": "公开作品 ACFV 同时涉及视频、音频与文本处理，因此与多模态方向相连。", "acfv_pipeline::mm_audio": "视频处理流程中的语音转写与音频理解直接相关。", "ctcp_web::sys_ui": "图状交互需要清晰的界面结构与操作反馈。", "ctcp_layers::sys_arch": "多层节点结构需要可维护的数据与程序结构。", "llm_local::local_twin": "本地 LLM 分身由本机 Ollama 模型提供生成能力。", "llm_memory::local_twin": "数字分身会使用当前公开上下文，但不会读取未公开工作资料。", "cs2_info::cv_state": "两者都涉及从有限信号中判断当前状态。", "slay_build::sys_arch": "构筑系统和程序架构都关注组件如何组合并影响整体。", "bgpony_psy::obra_reframe": "两者都强调通过后续信息重新理解人物与前文。", "bgpony_eng::english_reading": "长篇兴趣内容可以自然支持英语阅读。", "art_music::tamers_music": "对作品音乐的兴趣会延伸到音乐理论与分析。", "digital_char::tamers_design": "两者都体现对高辨识度角色设计的关注。", "mlp_world::tamers_web": "两者都属于社区与网络创作持续扩展作品世界的形式。"} };
+  PW.Data = { ROOT: {"id": "home", "label": "个人星图", "note": "公开作品 / 技术兴趣 / 游戏 / 影视动漫 / 学习兴趣", "desc": "这是一个公开版个人主页，以星图方式展示作品、技术方向、游戏、影视动漫与学习兴趣。", "facts": ["节点与关系可探索", "不同颜色表示不同内容范围", "支持多层节点浏览", "左键进入，右键查看详情"], "children": [{"id": "projects", "label": "公开作品", "note": "已经公开或适合公开介绍的内容", "desc": "这里展示可以公开介绍的作品概览，以及它们和技术兴趣之间的关系。", "facts": ["作品概览", "技术关联", "关系探索"], "children": [{"id": "acfv", "label": "ACFV", "note": "AI 辅助视频切片工具", "desc": "一个面向长视频的公开工具概念，结合语音转写、内容筛选与片段导出。", "facts": ["语音转写", "内容筛选", "片段导出"], "children": [{"id": "acfv_pipeline", "label": "处理流程", "note": "转写 → 筛选 → 导出", "desc": "把长视频整理成可检索、可筛选并可导出的片段流程。", "facts": ["分阶段处理", "自动化流程"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/acfv_pipeline.svg", "keywords": ["ACFV", "个人星图", "公开作品", "分阶段处理", "处理流程", "把长视频整理成可检索、可筛选并可导出的片段流程。", "自动化流程", "转写 → 筛选 → 导出"]}, {"id": "acfv_export", "label": "结果导出", "note": "批量生成片段", "desc": "将选中的时间区间输出为独立片段，方便后续使用。", "facts": ["批量导出", "片段管理"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/acfv_export.svg", "keywords": ["ACFV", "个人星图", "公开作品", "将选中的时间区间输出为独立片段，方便后续使用。", "批量导出", "批量生成片段", "片段管理", "结果导出"]}], "type": "group", "quote": "", "meta": {"kind": "公开工具", "stack": ["Python", "ASR", "Video"]}, "family": "projects", "depth": 2, "asset": "assets/nodes/acfv.svg", "keywords": ["ACFV", "AI 辅助视频切片工具", "一个面向长视频的公开工具概念，结合语音转写、内容筛选与片段导出。", "个人星图", "公开作品", "内容筛选", "片段导出", "语音转写"]}, {"id": "ctcp", "label": "CTCP", "note": "可探索的图状界面", "desc": "一个公开的图状交互实验，以节点、连线和多层进入方式呈现内容。", "facts": ["可拖动节点", "多层进入", "关系可视化"], "children": [{"id": "ctcp_web", "label": "交互图谱", "note": "拖动、点击与探索", "desc": "通过节点与连线浏览内容，而不是传统列表。", "facts": ["图谱交互", "关系浏览"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_web.svg", "keywords": ["CTCP", "个人星图", "交互图谱", "公开作品", "关系浏览", "图谱交互", "拖动、点击与探索", "通过节点与连线浏览内容，而不是传统列表。"]}, {"id": "ctcp_stars", "label": "星空视觉", "note": "暗色、漂浮与呼吸", "desc": "使用星点、微光和缓慢运动形成夜空感。", "facts": ["星空", "轻微呼吸"], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_stars.svg", "keywords": ["CTCP", "个人星图", "使用星点、微光和缓慢运动形成夜空感。", "公开作品", "星空", "星空视觉", "暗色、漂浮与呼吸", "轻微呼吸"]}, {"id": "ctcp_layers", "label": "层级展开", "note": "从大类进入细节", "desc": "不同层级用大小、边框与小星点表达。", "facts": ["多层结构", "层级可见"], "children": [], "type": "leaf", "quote": "", "family": "projects", "depth": 3, "asset": "assets/nodes/ctcp_layers.svg", "keywords": ["CTCP", "不同层级用大小、边框与小星点表达。", "个人星图", "从大类进入细节", "公开作品", "多层结构", "层级可见", "层级展开"]}], "type": "group", "quote": "", "meta": {"kind": "公开实验", "stack": ["Python", "Graph UI"]}, "family": "projects", "depth": 2, "asset": "assets/nodes/ctcp.svg", "keywords": ["CTCP", "一个公开的图状交互实验，以节点、连线和多层进入方式呈现内容。", "个人星图", "公开作品", "关系可视化", "可拖动节点", "可探索的图状界面", "多层进入"]}], "type": "category", "quote": "", "family": "projects", "depth": 1, "asset": "assets/nodes/projects.svg", "keywords": ["技术关联", "关系探索", "作品概览", "个人星图", "公开作品", "已经公开或适合公开介绍的内容", "这里展示可以公开介绍的作品概览，以及它们和技术兴趣之间的关系。"]}, {"id": "tech", "label": "技术兴趣", "note": "公开展示的技术方向", "desc": "只展示高层技术兴趣，不暴露具体设备、部署结构、内部方案或未公开工程细节。", "facts": ["LLM / Agent", "多模态", "计算机视觉", "系统工程"], "children": [{"id": "llm", "label": "LLM / Agent", "note": "交互、工具与上下文", "desc": "关注大语言模型如何连接工具、上下文和交互界面。", "facts": ["工具调用", "上下文管理", "交互策略"], "children": [{"id": "llm_clarify", "label": "适时提问", "note": "什么时候该问", "desc": "让系统在必要时提问，同时避免无意义地打断用户。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_clarify.svg", "keywords": ["LLM / Agent", "个人星图", "什么时候该问", "技术兴趣", "让系统在必要时提问，同时避免无意义地打断用户。", "适时提问"]}, {"id": "llm_memory", "label": "上下文管理", "note": "保留真正有用的信息", "desc": "关注长期交互中信息如何被整理与调用。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_memory.svg", "keywords": ["LLM / Agent", "上下文管理", "个人星图", "保留真正有用的信息", "关注长期交互中信息如何被整理与调用。", "技术兴趣"]}, {"id": "llm_local", "label": "本地模型", "note": "数据留在本机", "desc": "使用本机模型提供页面问答，避免把页面资料发送到云端。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/llm_local.svg", "keywords": ["LLM / Agent", "个人星图", "使用本机模型提供页面问答，避免把页面资料发送到云端。", "技术兴趣", "数据留在本机", "本地模型"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/llm.svg", "keywords": ["LLM / Agent", "上下文管理", "个人星图", "交互、工具与上下文", "交互策略", "关注大语言模型如何连接工具、上下文和交互界面。", "工具调用", "技术兴趣"]}, {"id": "local_twin", "label": "本地 LLM 分身", "note": "Ollama / 公开资料 / 隐私保护", "desc": "运行在右侧栏的本地模型导览助手，只能读取公开版星图内容，不提供当前工作、进度、日程或其他私人信息。", "facts": ["必须连接本地 Ollama", "不提供规则库假回答", "会拒绝隐私问题"], "children": [], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/local_twin.svg", "keywords": ["Ollama / 公开资料 / 隐私保护", "不提供规则库假回答", "个人星图", "会拒绝隐私问题", "必须连接本地 Ollama", "技术兴趣", "本地 LLM 分身", "运行在右侧栏的本地模型导览助手，只能读取公开版星图内容，不提供当前工作、进度、日程或其他私人信息。"]}, {"id": "multimodal", "label": "多模态", "note": "图像、视频与音频", "desc": "关注不同媒体信号如何共同支持理解。", "facts": ["图像", "音频", "视频"], "children": [{"id": "mm_video", "label": "视频理解", "note": "时序与事件", "desc": "把视频看作连续事件，而不是单独图片。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_video.svg", "keywords": ["个人星图", "多模态", "技术兴趣", "把视频看作连续事件，而不是单独图片。", "时序与事件", "视频理解"]}, {"id": "mm_audio", "label": "音频转写", "note": "语音与字幕", "desc": "将音频转成可检索文本。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_audio.svg", "keywords": ["个人星图", "多模态", "将音频转成可检索文本。", "技术兴趣", "语音与字幕", "音频转写"]}, {"id": "mm_scene", "label": "场景语义", "note": "画面在发生什么", "desc": "从目标识别进一步走向场景与行为理解。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/mm_scene.svg", "keywords": ["个人星图", "从目标识别进一步走向场景与行为理解。", "场景语义", "多模态", "技术兴趣", "画面在发生什么"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/multimodal.svg", "keywords": ["个人星图", "关注不同媒体信号如何共同支持理解。", "图像", "图像、视频与音频", "多模态", "技术兴趣", "视频", "音频"]}, {"id": "cv", "label": "计算机视觉", "note": "检测、场景与状态", "desc": "关注视觉信息如何变成可用于系统的结构化结果。", "facts": ["目标检测", "状态判断", "语义理解"], "children": [{"id": "cv_detect", "label": "目标检测", "note": "识别画面元素", "desc": "定位与识别视觉对象。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_detect.svg", "keywords": ["个人星图", "定位与识别视觉对象。", "技术兴趣", "目标检测", "计算机视觉", "识别画面元素"]}, {"id": "cv_state", "label": "状态判断", "note": "理解当前画面", "desc": "结合上下文判断场景状态。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_state.svg", "keywords": ["个人星图", "技术兴趣", "状态判断", "理解当前画面", "结合上下文判断场景状态。", "计算机视觉"]}, {"id": "cv_sem", "label": "语义理解", "note": "从像素到含义", "desc": "将视觉结果连接到更高层语义。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/cv_sem.svg", "keywords": ["个人星图", "从像素到含义", "将视觉结果连接到更高层语义。", "技术兴趣", "计算机视觉", "语义理解"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/cv.svg", "keywords": ["个人星图", "关注视觉信息如何变成可用于系统的结构化结果。", "技术兴趣", "检测、场景与状态", "状态判断", "目标检测", "计算机视觉", "语义理解"]}, {"id": "systems", "label": "系统工程", "note": "结构、性能与交互", "desc": "关注程序结构、稳定性和交互体验。", "facts": ["模块化", "性能", "可维护性"], "children": [{"id": "sys_arch", "label": "程序结构", "note": "模块清晰", "desc": "将数据、布局、物理与界面分开维护。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_arch.svg", "keywords": ["个人星图", "将数据、布局、物理与界面分开维护。", "技术兴趣", "模块清晰", "程序结构", "系统工程"]}, {"id": "sys_perf", "label": "性能与稳定", "note": "持续运行", "desc": "减少不必要计算并保持交互顺滑。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_perf.svg", "keywords": ["个人星图", "减少不必要计算并保持交互顺滑。", "性能与稳定", "技术兴趣", "持续运行", "系统工程"]}, {"id": "sys_ui", "label": "交互实现", "note": "视觉与操作一致", "desc": "让界面表现和用户操作相互配合。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "tech", "depth": 3, "asset": "assets/nodes/sys_ui.svg", "keywords": ["个人星图", "交互实现", "技术兴趣", "系统工程", "视觉与操作一致", "让界面表现和用户操作相互配合。"]}], "type": "group", "quote": "", "family": "tech", "depth": 2, "asset": "assets/nodes/systems.svg", "keywords": ["个人星图", "关注程序结构、稳定性和交互体验。", "可维护性", "性能", "技术兴趣", "模块化", "系统工程", "结构、性能与交互"]}], "type": "category", "quote": "", "family": "tech", "depth": 1, "asset": "assets/nodes/tech.svg", "keywords": ["LLM / Agent", "个人星图", "公开展示的技术方向", "只展示高层技术兴趣，不暴露具体设备、部署结构、内部方案或未公开工程细节。", "多模态", "技术兴趣", "系统工程", "计算机视觉"]}, {"id": "game_pref", "label": "游戏偏好", "note": "公开作品与玩法倾向", "desc": "展示适合公开的游戏作品名和玩法偏好。", "facts": ["英雄射击", "战术射击", "构筑系统", "推理解谜"], "children": [{"id": "ow", "label": "Overwatch", "note": "英雄射击 / 团战结构", "desc": "偏好角色职责清晰、强调空间和团队配合的多人对抗。", "facts": [], "children": [{"id": "ow_tank", "label": "坦克定位", "note": "改变交战结构", "desc": "关注能够塑造战场空间的角色。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_tank.svg", "keywords": ["Overwatch", "个人星图", "关注能够塑造战场空间的角色。", "坦克定位", "改变交战结构", "游戏", "游戏偏好"]}, {"id": "ow_space", "label": "空间控制", "note": "位置与压制", "desc": "站位与范围会直接改变团战。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_space.svg", "keywords": ["Overwatch", "个人星图", "位置与压制", "游戏", "游戏偏好", "空间控制", "站位与范围会直接改变团战。"]}, {"id": "ow_team", "label": "团队配合", "note": "职责与阵型", "desc": "不同角色共同形成完整战斗结构。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/ow_team.svg", "keywords": ["Overwatch", "不同角色共同形成完整战斗结构。", "个人星图", "团队配合", "游戏", "游戏偏好", "职责与阵型"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/ow.svg", "keywords": ["Overwatch", "个人星图", "偏好角色职责清晰、强调空间和团队配合的多人对抗。", "游戏", "游戏偏好", "英雄射击 / 团战结构"]}, {"id": "cs2", "label": "Counter-Strike", "note": "射击 / 信息 / 节奏", "desc": "喜欢规则直接、信息价值高、判断与操作并重的战术射击。", "facts": [], "children": [{"id": "cs2_info", "label": "信息判断", "note": "听、看与推断", "desc": "有限信息会直接影响决策。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_info.svg", "keywords": ["Counter-Strike", "个人星图", "信息判断", "听、看与推断", "有限信息会直接影响决策。", "游戏", "游戏偏好"]}, {"id": "cs2_tempo", "label": "对局节奏", "note": "推进与回防", "desc": "回合节奏清晰且变化明显。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_tempo.svg", "keywords": ["Counter-Strike", "个人星图", "回合节奏清晰且变化明显。", "对局节奏", "推进与回防", "游戏", "游戏偏好"]}, {"id": "cs2_clean", "label": "清晰规则", "note": "目标直接", "desc": "目标与胜负条件足够明确。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/cs2_clean.svg", "keywords": ["Counter-Strike", "个人星图", "清晰规则", "游戏", "游戏偏好", "目标与胜负条件足够明确。", "目标直接"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/cs2.svg", "keywords": ["Counter-Strike", "个人星图", "喜欢规则直接、信息价值高、判断与操作并重的战术射击。", "射击 / 信息 / 节奏", "游戏", "游戏偏好"]}, {"id": "slay", "label": "Slay the Spire", "note": "构筑 / 局内成长", "desc": "偏好系统之间能形成联动、每局路线和构筑不同的玩法。", "facts": [], "children": [{"id": "slay_build", "label": "构筑联动", "note": "卡牌与遗物", "desc": "系统组合会改变整局方向。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_build.svg", "keywords": ["Slay the Spire", "个人星图", "卡牌与遗物", "构筑联动", "游戏", "游戏偏好", "系统组合会改变整局方向。"]}, {"id": "slay_route", "label": "路线选择", "note": "路径也是决策", "desc": "路线本身带来资源与风险取舍。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_route.svg", "keywords": ["Slay the Spire", "个人星图", "游戏", "游戏偏好", "路径也是决策", "路线本身带来资源与风险取舍。", "路线选择"]}, {"id": "slay_replay", "label": "重玩性", "note": "每局不同", "desc": "相同规则能产生不同组合。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/slay_replay.svg", "keywords": ["Slay the Spire", "个人星图", "每局不同", "游戏", "游戏偏好", "相同规则能产生不同组合。", "重玩性"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/slay.svg", "keywords": ["Slay the Spire", "个人星图", "偏好系统之间能形成联动、每局路线和构筑不同的玩法。", "构筑 / 局内成长", "游戏", "游戏偏好"]}, {"id": "obra", "label": "Return of the Obra Dinn", "note": "推理 / 重解读", "desc": "喜欢需要拼接线索并重新理解前文的推理结构。", "facts": [], "children": [{"id": "obra_clues", "label": "线索拼接", "note": "逐步建立结构", "desc": "信息不会一次给全。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_clues.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "信息不会一次给全。", "游戏", "游戏偏好", "线索拼接", "逐步建立结构"]}, {"id": "obra_reframe", "label": "重新理解", "note": "后文改变前文", "desc": "新信息会改变之前的判断。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_reframe.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "后文改变前文", "新信息会改变之前的判断。", "游戏", "游戏偏好", "重新理解"]}, {"id": "obra_map", "label": "关系结构", "note": "在脑中形成图谱", "desc": "人物、事件和线索逐渐连接。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "game_pref", "depth": 3, "asset": "assets/nodes/obra_map.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "人物、事件和线索逐渐连接。", "关系结构", "在脑中形成图谱", "游戏", "游戏偏好"]}], "type": "group", "quote": "", "family": "game_pref", "depth": 2, "asset": "assets/nodes/obra.svg", "keywords": ["Return of the Obra Dinn", "个人星图", "喜欢需要拼接线索并重新理解前文的推理结构。", "推理 / 重解读", "游戏", "游戏偏好"]}], "type": "category", "quote": "", "family": "game_pref", "depth": 1, "asset": "assets/nodes/game_pref.svg", "keywords": ["个人星图", "公开作品与玩法倾向", "展示适合公开的游戏作品名和玩法偏好。", "战术射击", "推理解谜", "构筑系统", "游戏", "游戏偏好", "英雄射击"]}, {"id": "media", "label": "影视动漫偏好", "note": "公开作品与审美倾向", "desc": "展示适合公开的作品名，以及角色、音乐和视觉方面的偏好。", "facts": ["网络动画", "角色关系", "音乐叙事", "同人社区"], "children": [{"id": "helluva", "label": "Helluva Boss", "note": "音乐 / 角色关系 / 网络动画", "desc": "会关注音乐如何参与叙事，以及角色关系如何持续变化。", "facts": [], "children": [{"id": "helluva_music", "label": "音乐段落", "note": "歌曲参与叙事", "desc": "歌曲会直接承担情绪与剧情表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_music.svg", "keywords": ["Helluva Boss", "个人星图", "影视动漫", "影视动漫偏好", "歌曲会直接承担情绪与剧情表达。", "歌曲参与叙事", "音乐段落"]}, {"id": "helluva_rel", "label": "角色关系", "note": "关系持续变化", "desc": "关系不会简单归零，而是不断改变。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_rel.svg", "keywords": ["Helluva Boss", "个人星图", "关系不会简单归零，而是不断改变。", "关系持续变化", "影视动漫", "影视动漫偏好", "角色关系"]}, {"id": "helluva_style", "label": "风格识别", "note": "视觉气质鲜明", "desc": "作品整体具有强烈辨识度。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/helluva_style.svg", "keywords": ["Helluva Boss", "个人星图", "作品整体具有强烈辨识度。", "影视动漫", "影视动漫偏好", "视觉气质鲜明", "风格识别"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/helluva.svg", "keywords": ["Helluva Boss", "个人星图", "会关注音乐如何参与叙事，以及角色关系如何持续变化。", "影视动漫", "影视动漫偏好", "音乐 / 角色关系 / 网络动画"]}, {"id": "digital", "label": "The Amazing Digital Circus", "note": "角色设计 / 气质 / Jax", "desc": "会被鲜明角色设计、明亮表面下的不安感和强存在感角色吸引。", "facts": [], "children": [{"id": "digital_char", "label": "角色设计", "note": "轮廓与气质", "desc": "角色需要有明确辨识度。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_char.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "影视动漫", "影视动漫偏好", "角色设计", "角色需要有明确辨识度。", "轮廓与气质"]}, {"id": "digital_mood", "label": "明亮与不安", "note": "表层和内里反差", "desc": "轻微不安感会增加层次。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_mood.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "影视动漫", "影视动漫偏好", "明亮与不安", "表层和内里反差", "轻微不安感会增加层次。"]}, {"id": "digital_jax", "label": "Jax", "note": "存在感强", "desc": "有摩擦感的角色更容易留下印象。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/digital_jax.svg", "keywords": ["Jax", "The Amazing Digital Circus", "个人星图", "存在感强", "影视动漫", "影视动漫偏好", "有摩擦感的角色更容易留下印象。"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/digital.svg", "keywords": ["The Amazing Digital Circus", "个人星图", "会被鲜明角色设计、明亮表面下的不安感和强存在感角色吸引。", "影视动漫", "影视动漫偏好", "角色设计 / 气质 / Jax"]}, {"id": "mlp", "label": "MLP Fan Works", "note": "同人 / 长期社区", "desc": "关注作品如何在社区中继续扩写与变化。", "facts": [], "children": [{"id": "mlp_fan", "label": "同人延展", "note": "世界继续生长", "desc": "官方内容之外仍能产生新的故事。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_fan.svg", "keywords": ["MLP Fan Works", "世界继续生长", "个人星图", "同人延展", "官方内容之外仍能产生新的故事。", "影视动漫", "影视动漫偏好"]}, {"id": "mlp_comm", "label": "长期社区", "note": "持续创作", "desc": "长期更新让作品保持活力。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_comm.svg", "keywords": ["MLP Fan Works", "个人星图", "影视动漫", "影视动漫偏好", "持续创作", "长期更新让作品保持活力。", "长期社区"]}, {"id": "mlp_world", "label": "共同创作", "note": "持续变化的生态", "desc": "作品逐渐形成更大的社区文化。", "facts": [], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "media", "depth": 3, "asset": "assets/nodes/mlp_world.svg", "keywords": ["MLP Fan Works", "个人星图", "作品逐渐形成更大的社区文化。", "共同创作", "影视动漫", "影视动漫偏好", "持续变化的生态"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/mlp.svg", "keywords": ["MLP Fan Works", "个人星图", "关注作品如何在社区中继续扩写与变化。", "同人 / 长期社区", "影视动漫", "影视动漫偏好"]}, {"id": "bgpony", "label": "Background Pony", "note": "长篇同人 / 英语阅读", "desc": "长篇故事同时连接作品兴趣和英语阅读。", "facts": [], "children": [{"id": "bgpony_long", "label": "长篇阅读", "note": "持续投入", "desc": "长篇内容能积累更强的投入感。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_long.svg", "keywords": ["Background Pony", "个人星图", "影视动漫", "影视动漫偏好", "持续投入", "长篇内容能积累更强的投入感。", "长篇阅读"]}, {"id": "bgpony_psy", "label": "角色心理", "note": "人物内部", "desc": "相比设定，更关注角色内部变化。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_psy.svg", "keywords": ["Background Pony", "个人星图", "人物内部", "影视动漫", "影视动漫偏好", "相比设定，更关注角色内部变化。", "角色心理"]}, {"id": "bgpony_eng", "label": "英语阅读", "note": "兴趣驱动", "desc": "喜欢的内容更容易支持长期阅读。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/bgpony_eng.svg", "keywords": ["Background Pony", "个人星图", "兴趣驱动", "喜欢的内容更容易支持长期阅读。", "影视动漫", "影视动漫偏好", "英语阅读"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/bgpony.svg", "keywords": ["Background Pony", "个人星图", "影视动漫", "影视动漫偏好", "长篇同人 / 英语阅读", "长篇故事同时连接作品兴趣和英语阅读。"]}, {"id": "tamers", "label": "Tamers12345", "note": "音乐 / 角色设计 / 网络作品", "desc": "会关注小型网络作品中鲜明的音乐、角色与个体风格。", "facts": [], "children": [{"id": "tamers_music", "label": "音乐", "note": "作品气质的一部分", "desc": "音乐会成为作品的重要记忆点。", "facts": [], "children": [], "type": "leaf", "quote": "", "hiddenStar": true, "secretHint": "隐藏星点", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_music.svg", "keywords": ["Tamers12345", "个人星图", "作品气质的一部分", "影视动漫", "影视动漫偏好", "音乐", "音乐会成为作品的重要记忆点。"]}, {"id": "tamers_design", "label": "角色设计", "note": "形象辨识度", "desc": "角色形象本身就能成为吸引点。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_design.svg", "keywords": ["Tamers12345", "个人星图", "形象辨识度", "影视动漫", "影视动漫偏好", "角色形象本身就能成为吸引点。", "角色设计"]}, {"id": "tamers_web", "label": "网络作品感", "note": "小而明确", "desc": "小型创作更容易保留独特气质。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "media", "depth": 3, "asset": "assets/nodes/tamers_web.svg", "keywords": ["Tamers12345", "个人星图", "小型创作更容易保留独特气质。", "小而明确", "影视动漫", "影视动漫偏好", "网络作品感"]}], "type": "group", "quote": "", "family": "media", "depth": 2, "asset": "assets/nodes/tamers.svg", "keywords": ["Tamers12345", "个人星图", "会关注小型网络作品中鲜明的音乐、角色与个体风格。", "影视动漫", "影视动漫偏好", "音乐 / 角色设计 / 网络作品"]}], "type": "category", "quote": "", "family": "media", "depth": 1, "asset": "assets/nodes/media.svg", "keywords": ["个人星图", "公开作品与审美倾向", "同人社区", "展示适合公开的作品名，以及角色、音乐和视觉方面的偏好。", "影视动漫", "影视动漫偏好", "网络动画", "角色关系", "音乐叙事"]}, {"id": "learning", "label": "学习兴趣", "note": "公开展示的宽泛方向", "desc": "记录一些长期学习与创作兴趣，并与相关作品和技术节点连接。", "facts": ["计算机基础", "英语阅读", "绘画与音乐"], "children": [{"id": "foundations", "label": "基础学习", "note": "计算机 / 数学 / 英语", "desc": "持续补充通用基础，但不在公开页面展示具体考试目标与进度。", "facts": [], "children": [{"id": "math_foundation", "label": "数学基础", "note": "方法与计算", "desc": "关注基本方法与计算稳定性。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/math_foundation.svg", "keywords": ["个人星图", "关注基本方法与计算稳定性。", "基础学习", "学习兴趣", "数学基础", "方法与计算"]}, {"id": "english_reading", "label": "英语阅读", "note": "长篇与语境", "desc": "通过真实内容积累阅读能力。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/english_reading.svg", "keywords": ["个人星图", "基础学习", "学习兴趣", "英语阅读", "通过真实内容积累阅读能力。", "长篇与语境"]}, {"id": "cs_foundation", "label": "计算机基础", "note": "系统与网络", "desc": "关注计算机系统和网络基础。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/cs_foundation.svg", "keywords": ["个人星图", "关注计算机系统和网络基础。", "基础学习", "学习兴趣", "系统与网络", "计算机基础"]}], "type": "group", "quote": "", "family": "learning", "depth": 2, "asset": "assets/nodes/foundations.svg", "keywords": ["个人星图", "基础学习", "学习兴趣", "持续补充通用基础，但不在公开页面展示具体考试目标与进度。", "计算机 / 数学 / 英语"]}, {"id": "art", "label": "绘画与音乐", "note": "创作基础", "desc": "将绘画、音乐理论和作品分析作为长期兴趣。", "facts": [], "children": [{"id": "art_draw", "label": "绘画", "note": "结构与表达", "desc": "练习基础结构和视觉表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_draw.svg", "keywords": ["个人星图", "学习兴趣", "练习基础结构和视觉表达。", "结构与表达", "绘画", "绘画与音乐"]}, {"id": "art_music", "label": "音乐理论", "note": "和弦与节奏", "desc": "理解作品中的和声、节奏与结构。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_music.svg", "keywords": ["个人星图", "和弦与节奏", "学习兴趣", "理解作品中的和声、节奏与结构。", "绘画与音乐", "音乐理论"]}, {"id": "art_style", "label": "审美积累", "note": "角色与作品分析", "desc": "从喜欢的作品中观察设计与表达。", "facts": [], "children": [], "type": "leaf", "quote": "", "family": "learning", "depth": 3, "asset": "assets/nodes/art_style.svg", "keywords": ["个人星图", "从喜欢的作品中观察设计与表达。", "学习兴趣", "审美积累", "绘画与音乐", "角色与作品分析"]}], "type": "group", "quote": "", "family": "learning", "depth": 2, "asset": "assets/nodes/art.svg", "keywords": ["个人星图", "创作基础", "学习兴趣", "将绘画、音乐理论和作品分析作为长期兴趣。", "绘画与音乐"]}], "type": "category", "quote": "", "family": "learning", "depth": 1, "asset": "assets/nodes/learning.svg", "keywords": ["个人星图", "公开展示的宽泛方向", "记录一些长期学习与创作兴趣，并与相关作品和技术节点连接。", "学习兴趣", "绘画与音乐", "英语阅读", "计算机基础"]}], "type": "root", "quote": "", "family": "home", "depth": 0, "asset": "assets/nodes/home.svg", "keywords": ["个人星图", "主页", "公开作品 / 技术兴趣 / 游戏 / 影视动漫 / 学习兴趣", "节点与关系可探索", "左键进入，右键查看详情", "支持多层节点浏览", "这是一个公开版个人主页，以星图方式展示作品、技术方向、游戏、影视动漫与学习兴趣。", "不同颜色表示不同内容范围"]}, EXTRA_LINKS: [["acfv", "multimodal"], ["acfv_pipeline", "mm_audio"], ["ctcp_web", "sys_ui"], ["ctcp_layers", "sys_arch"], ["local_twin", "llm_local"], ["local_twin", "llm_memory"], ["cs2_info", "cv_state"], ["slay_build", "sys_arch"], ["obra_reframe", "bgpony_psy"], ["bgpony_eng", "english_reading"], ["tamers_music", "art_music"], ["tamers_design", "digital_char"], ["mlp_world", "tamers_web"]], RELATIONS: {"acfv::multimodal": "公开作品 ACFV 同时涉及视频、音频与文本处理，因此与多模态方向相连。", "acfv_pipeline::mm_audio": "视频处理流程中的语音转写与音频理解直接相关。", "ctcp_web::sys_ui": "图状交互需要清晰的界面结构与操作反馈。", "ctcp_layers::sys_arch": "多层节点结构需要可维护的数据与程序结构。", "llm_local::local_twin": "本地 LLM 分身由本机 Ollama 模型提供生成能力。", "llm_memory::local_twin": "数字分身节点与语言模型、上下文组织等方向相连。", "cs2_info::cv_state": "两者都涉及从有限信号中判断当前状态。", "slay_build::sys_arch": "构筑系统和程序架构都关注组件如何组合并影响整体。", "bgpony_psy::obra_reframe": "两者都强调通过后续信息重新理解人物与前文。", "bgpony_eng::english_reading": "长篇兴趣内容可以自然支持英语阅读。", "art_music::tamers_music": "对作品音乐的兴趣会延伸到音乐理论与分析。", "digital_char::tamers_design": "两者都体现对高辨识度角色设计的关注。", "mlp_world::tamers_web": "两者都属于社区与网络创作持续扩展作品世界的形式。"} };
 })(window.PersonalWeb = window.PersonalWeb || {});
 </script>
 <script>(function (PW) {
@@ -797,8 +797,7 @@ PersonalWeb.GraphModel.prototype.imageFor = function(id){
           const ratio = children.length === 1 ? 0.5 : index / (children.length - 1);
           const angle =
             baseAngle -
-            spread / 2 +
-            spread * ratio +
+            spread / 2 +            spread * ratio +
             (randomFor(child.id, 1) - 0.5) * 0.18;
           const radius = 118 + randomFor(child.id, 2) * 66;
           const x = anchor.x + Math.cos(angle) * radius;
@@ -998,3 +997,1945 @@ PersonalWeb.GraphModel.prototype.imageFor = function(id){
           const cell = this.cells.get(this.key(x + offsetX, y + offsetY));
           if (cell) result.push(...cell);
         }
+      }
+      return result;
+    }
+  }
+
+  class PhysicsEngine {
+    constructor() {
+      this.spatialHash = new SpatialHash(PHYSICS.cellSize);
+      this.reducedMotion =
+        window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    }
+
+    step(scene, dragging, motionEnabled = true) {
+      if (!scene) return;
+
+      const center = scene.nodes[0];
+      const time = performance.now() * 0.001;
+      this.spatialHash.build(scene.nodes);
+
+      scene.nodes.forEach((node) => {
+        if (dragging?.id === node.id) return;
+
+        let forceX = 0;
+        let forceY = 0;
+
+        this.spatialHash.nearby(node).forEach((other) => {
+          if (other === node) return;
+
+          const deltaX = node.x - other.x;
+          const deltaY = node.y - other.y;
+          const distance = Math.hypot(deltaX, deltaY) || 1;
+          const minimum =
+            node.baseR +
+            other.baseR +
+            (node.cls === 'micro' || other.cls === 'micro'
+              ? 7
+              : PHYSICS.repelGap);
+
+          if (distance < minimum + PHYSICS.repelRange) {
+            const strength =
+              (minimum + PHYSICS.repelRange - distance) *
+              (node.cls === 'micro' ? 0.0021 : 0.003);
+            forceX += (deltaX / distance) * strength;
+            forceY += (deltaY / distance) * strength;
+          }
+        });
+
+        const wobble = motionEnabled && !this.reducedMotion ? node.wobble : 0;
+        const targetX =
+          node.ax +
+          Math.cos(time * node.wobbleSpeed + node.pulsePhase) * wobble;
+        const targetY =
+          node.ay +
+          Math.sin(time * node.wobbleSpeed * 0.92 + node.pulsePhase) *
+            wobble *
+            0.72;
+
+        const spring =
+          node.cls === 'micro' ? PHYSICS.springMicro : PHYSICS.springMain;
+        forceX += (targetX - node.x) * spring;
+        forceY += (targetY - node.y) * spring;
+
+        if (node.id !== center.id) {
+          forceX += (center.x - node.x) * PHYSICS.centerPull;
+          forceY += (center.y - node.y) * PHYSICS.centerPull;
+        }
+
+        node.forceX = forceX;
+        node.forceY = forceY;
+      });
+
+      scene.links.forEach((link) => {
+        const source = scene.nodes.find((node) => node.id === link.a);
+        const target = scene.nodes.find((node) => node.id === link.b);
+        if (!source || !target) return;
+
+        const deltaX = target.x - source.x;
+        const deltaY = target.y - source.y;
+        const distance = Math.hypot(deltaX, deltaY) || 1;
+
+        let desired = link.kind === 'strong' ? 118 : 170;
+        if (source.cls === 'root' || target.cls === 'root') desired = 220;
+        if (source.cls === 'micro' || target.cls === 'micro') desired = 52;
+
+        const strength = (distance - desired) * PHYSICS.linkSpring;
+        const springX = (deltaX / distance) * strength;
+        const springY = (deltaY / distance) * strength;
+
+        if (dragging?.id !== source.id) {
+          source.forceX += springX;
+          source.forceY += springY;
+        }
+        if (dragging?.id !== target.id) {
+          target.forceX -= springX;
+          target.forceY -= springY;
+        }
+      });
+
+      scene.nodes.forEach((node) => {
+        if (dragging?.id === node.id) return;
+
+        const damping =
+          node.cls === 'micro' ? PHYSICS.dampingMicro : PHYSICS.damping;
+        node.vx = (node.vx + (node.forceX || 0)) * damping;
+        node.vy = (node.vy + (node.forceY || 0)) * damping;
+
+        const pulse =
+          motionEnabled && !this.reducedMotion
+            ? node.cls === 'micro'
+              ? PHYSICS.pulseMicro
+              : node.cls === 'root'
+                ? PHYSICS.pulseRoot
+                : PHYSICS.pulse
+            : 0;
+        node.scale = 1 + Math.sin(time * 1.15 + node.pulsePhase) * pulse;
+
+        if (node.id === center.id) return;
+
+        node.x += node.vx;
+        node.y += node.vy;
+        const padding = node.cls === 'micro' ? 10 : 30;
+        node.x = Math.max(padding, Math.min(VIEWBOX.width - padding, node.x));
+        node.y = Math.max(padding, Math.min(VIEWBOX.height - padding, node.y));
+      });
+
+      center.scale =
+        1 +
+        (motionEnabled && !this.reducedMotion
+          ? Math.sin(time) * PHYSICS.pulseRoot
+          : 0);
+    }
+  }
+
+  PW.PhysicsEngine = PhysicsEngine;
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+<script>(function (PW) {
+  'use strict';
+
+  class LayoutStorage {
+    constructor(prefix) {
+      this.prefix = prefix;
+      this.available = this.testAvailability();
+    }
+
+    testAvailability() {
+      try {
+        const key = `${this.prefix}:test`;
+        localStorage.setItem(key, '1');
+        localStorage.removeItem(key);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    key(name) {
+      return `${this.prefix}:${name}`;
+    }
+
+    get(name, fallback = null) {
+      if (!this.available) return fallback;
+      try {
+        const value = localStorage.getItem(this.key(name));
+        return value ? JSON.parse(value) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    set(name, value) {
+      if (!this.available) return;
+      try {
+        localStorage.setItem(this.key(name), JSON.stringify(value));
+      } catch {
+        // Storage is optional; ignore quota or security errors.
+      }
+    }
+
+    remove(name) {
+      if (!this.available) return;
+      try {
+        localStorage.removeItem(this.key(name));
+      } catch {
+        // Ignore optional persistence errors.
+      }
+    }
+
+    applyScene(scene) {
+      const saved = this.get(`layout:${scene.key}`, {});
+      scene.nodes.forEach((node) => {
+        const position = saved[node.id];
+        if (!position) return;
+        node.x = position.x;
+        node.y = position.y;
+        node.ax = position.x;
+        node.ay = position.y;
+      });
+    }
+
+    saveScene(scene) {
+      const value = {};
+      scene.nodes.forEach((node) => {
+        value[node.id] = {
+          x: Number(node.ax.toFixed(2)),
+          y: Number(node.ay.toFixed(2))
+        };
+      });
+      this.set(`layout:${scene.key}`, value);
+    }
+
+    clearScene(key) {
+      this.remove(`layout:${key}`);
+    }
+  }
+
+  PW.LayoutStorage = LayoutStorage;
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+<script>(function (PW) {
+  'use strict';
+
+  class Starfield {
+    constructor(canvas) {
+      this.canvas = canvas;
+      this.context = canvas.getContext('2d');
+      this.pixelRatio = Math.min(2, window.devicePixelRatio || 1);
+      this.stars = [];
+      this.pointer = { x: 0, y: 0 };
+      this.active = true;
+
+      this.resize();
+      this.createStars();
+
+      window.addEventListener('resize', () => {
+        this.resize();
+        this.createStars();
+      });
+      window.addEventListener('pointermove', (event) => {
+        this.pointer.x = event.clientX / window.innerWidth - 0.5;
+        this.pointer.y = event.clientY / window.innerHeight - 0.5;
+      });
+      document.addEventListener('visibilitychange', () => {
+        this.active = !document.hidden;
+      });
+
+      requestAnimationFrame((time) => this.draw(time));
+    }
+
+    resize() {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.canvas.width = this.width * this.pixelRatio;
+      this.canvas.height = this.height * this.pixelRatio;
+      this.canvas.style.width = `${this.width}px`;
+      this.canvas.style.height = `${this.height}px`;
+      this.context.setTransform(
+        this.pixelRatio,
+        0,
+        0,
+        this.pixelRatio,
+        0,
+        0
+      );
+    }
+
+    createStars() {
+      const count = Math.min(180, Math.max(90, Math.floor(window.innerWidth / 8)));
+      this.stars = Array.from({ length: count }, () => ({
+        x: Math.random(),
+        y: Math.random(),
+        radius: 0.35 + Math.random() * 1.45,
+        alpha: 0.14 + Math.random() * 0.68,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.15 + Math.random() * 0.45,
+        depth: 0.2 + Math.random() * 0.8
+      }));
+    }
+
+    draw(time) {
+      if (this.active) {
+        this.context.clearRect(0, 0, this.width, this.height);
+
+        this.stars.forEach((star) => {
+          const alpha = Math.max(
+            0.04,
+            star.alpha + Math.sin(time * 0.001 * star.speed * 7 + star.phase) * 0.11
+          );
+          const x =
+            star.x * this.width + this.pointer.x * star.depth * 16;
+          const y =
+            star.y * this.height + this.pointer.y * star.depth * 12;
+
+          this.context.globalAlpha = alpha;
+          this.context.fillStyle = '#f5f8ff';
+          this.context.beginPath();
+          this.context.arc(x, y, star.radius, 0, Math.PI * 2);
+          this.context.fill();
+        });
+
+        this.context.globalAlpha = 1;
+      }
+
+      requestAnimationFrame((nextTime) => this.draw(nextTime));
+    }
+  }
+
+  PW.Starfield = Starfield;
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+<script>(function (PW) {
+  'use strict';
+
+  const { FAMILY_COLORS, ZOOM, VIEWBOX } = PW.Config;
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  class GraphRenderer {
+    constructor(model) {
+      this.model = model;
+      this.svg = document.getElementById('graph');
+      this.viewport = document.getElementById('viewport');
+      this.defs = document.getElementById('graphDefs');
+      this.links = document.getElementById('links');
+      this.nodes = document.getElementById('nodes');
+      this.transform = { x: 0, y: 0, k: 1 };
+      this.pan = null;
+      this.handlers = {};
+      this.scene = null;
+      this.state = null;
+      this.proximityPoint = null;
+      this.proximityFrame = null;
+      this.discovering = new Set();
+      this.bindViewport();
+      this.bindProximity();
+    }
+
+    setHandlers(handlers) {
+      this.handlers = handlers;
+    }
+
+    familyColor(family) {
+      return FAMILY_COLORS[family] || FAMILY_COLORS.home;
+    }
+
+    hierarchy(node) {
+      if (node.cls === 'root') return { stroke: 3.3, dot: 6.4 };
+      if (node.cls === 'category') return { stroke: 2.8, dot: 5.8 };
+      if (node.cls === 'child') return { stroke: 2.0, dot: 4.8 };
+      if (node.cls === 'related') return { stroke: 1.3, dot: 4.0 };
+      return { stroke: 0.7, dot: 2.8 };
+    }
+
+    curve(a, b) {
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const distance = Math.hypot(dx, dy) || 1;
+      const middleX = (a.x + b.x) / 2;
+      const middleY = (a.y + b.y) / 2;
+      const bend = Math.min(38, distance * 0.09);
+      const controlX = middleX - (dy / distance) * bend;
+      const controlY = middleY + (dx / distance) * bend;
+      return `M ${a.x} ${a.y} Q ${controlX} ${controlY} ${b.x} ${b.y}`;
+    }
+
+    nodeById(id) {
+      return this.scene?.nodes.find((node) => node.id === id);
+    }
+
+    render(scene, state) {
+      this.scene = scene;
+      this.state = state;
+      this.links.innerHTML = '';
+      this.nodes.innerHTML = '';
+      this.defs.innerHTML = '';
+
+      document.getElementById('sceneStats').textContent =
+        `${scene.nodes.length} 个节点 · ${scene.links.length} 条连接`;
+
+      scene.links.forEach((link) => this.renderLink(link));
+      scene.nodes.forEach((node) => this.renderNode(node));
+
+      this.applyFilter();
+      this.applySearch();
+      this.applyExploration();
+      this.applyViewport();
+      this.animateSceneEntry();
+    }
+
+    renderLink(link) {
+      const source = this.nodeById(link.a);
+      const target = this.nodeById(link.b);
+      if (!source || !target) return;
+
+      const hit = document.createElementNS(SVG_NS, 'path');
+      hit.setAttribute('class', 'link-hit');
+      hit.setAttribute('d', this.curve(source, target));
+      hit.dataset.a = link.a;
+      hit.dataset.b = link.b;
+
+      const path = document.createElementNS(SVG_NS, 'path');
+      path.setAttribute('class', `web-link ${link.kind}`);
+      path.setAttribute('d', this.curve(source, target));
+      path.dataset.a = link.a;
+      path.dataset.b = link.b;
+
+      hit.addEventListener('mouseenter', () => {
+        path.classList.add('relation-hover');
+        this.handlers.linkHover?.(true);
+      });
+      hit.addEventListener('mouseleave', () => {
+        path.classList.remove('relation-hover');
+        this.handlers.linkHover?.(false);
+      });
+      hit.addEventListener('click', (event) => {
+        event.stopPropagation();
+        this.handlers.relation?.(link.a, link.b);
+      });
+
+      this.links.append(hit, path);
+    }
+
+    renderNode(node) {
+      const group = document.createElementNS(SVG_NS, 'g');
+      const visited = this.state?.visited?.has(node.id);
+      const hiddenStar = Boolean(node.obj.hiddenStar);
+      const discovered = this.state?.discoveredStars?.has(node.id);
+      const favorite = this.state?.favorites?.has(node.id);
+      group.setAttribute(
+        'class',
+        `node ${node.cls}${node.id === this.state.activeId ? ' selected' : ''}${visited ? ' visited' : ''}${hiddenStar ? ' hidden-star' : ''}${hiddenStar && !discovered ? ' undiscovered' : ''}${hiddenStar && discovered ? ' discovered' : ''}${favorite ? ' favorite' : ''}`
+      );
+      group.setAttribute(
+        'transform',
+        `translate(${node.x} ${node.y}) scale(${node.scale || 1})`
+      );
+      group.dataset.id = node.id;
+      group.dataset.family = node.obj.family || 'home';
+      group.dataset.hiddenStar = hiddenStar ? 'true' : 'false';
+      group.setAttribute('tabindex', '0');
+      group.setAttribute('role', 'button');
+      group.setAttribute(
+        'aria-label',
+        `${node.obj.label}：左键进入，右键查看详情`
+      );
+
+      const color = this.familyColor(node.obj.family || 'home');
+      const hierarchy = this.hierarchy(node);
+
+      if (node.cls === 'micro') {
+        this.renderMicroNode(group, node, color);
+      } else {
+        this.renderImageNode(group, node, color, hierarchy);
+      }
+
+      this.bindNodeEvents(group, node);
+      this.nodes.appendChild(group);
+    }
+
+    renderMicroNode(group, node, color) {
+      const dot = document.createElementNS(SVG_NS, 'circle');
+      dot.setAttribute('class', 'dot');
+      dot.setAttribute('r', '2.8');
+      dot.setAttribute('fill', color);
+
+      const label = document.createElementNS(SVG_NS, 'text');
+      label.setAttribute('class', 'label');
+      label.setAttribute('x', '8');
+      label.setAttribute('y', '-5');
+      label.textContent = this.truncate(node.obj.label, 15);
+
+      if (this.state?.visited?.has(node.id)) {
+        const ring = document.createElementNS(SVG_NS, 'circle');
+        ring.setAttribute('class', 'visited-ring');
+        ring.setAttribute('r', '5.2');
+        ring.setAttribute('stroke', color);
+        group.append(ring);
+      }
+
+      if (this.state?.favorites?.has(node.id)) {
+        const favoriteRing = document.createElementNS(SVG_NS, 'circle');
+        favoriteRing.setAttribute('class', 'favorite-ring');
+        favoriteRing.setAttribute('r', '7.4');
+        favoriteRing.setAttribute('stroke', color);
+        group.append(favoriteRing);
+      }
+
+      group.append(dot, label);
+    }
+
+    renderImageNode(group, node, color, hierarchy) {
+      const clipId = `clip-${node.id.replace(/[^a-zA-Z0-9_-]/g, '_')}`;
+      const clipPath = document.createElementNS(SVG_NS, 'clipPath');
+      clipPath.id = clipId;
+      const clipCircle = document.createElementNS(SVG_NS, 'circle');
+      clipCircle.setAttribute('r', Math.max(8, node.r - 2.5));
+      clipPath.appendChild(clipCircle);
+      this.defs.appendChild(clipPath);
+
+      const image = document.createElementNS(SVG_NS, 'image');
+      image.setAttribute('class', 'thumb');
+      image.setAttribute('href', this.model.imageFor(node.id));
+      image.setAttribute('x', -node.r + 2.5);
+      image.setAttribute('y', -node.r + 2.5);
+      image.setAttribute('width', (node.r - 2.5) * 2);
+      image.setAttribute('height', (node.r - 2.5) * 2);
+      image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+      image.setAttribute('clip-path', `url(#${clipId})`);
+
+      const shade = document.createElementNS(SVG_NS, 'circle');
+      shade.setAttribute('class', 'thumb-shade');
+      shade.setAttribute('r', Math.max(8, node.r - 2.5));
+
+      const outer = document.createElementNS(SVG_NS, 'circle');
+      outer.setAttribute('class', 'outer');
+      outer.setAttribute('r', node.r);
+      outer.setAttribute('stroke', color);
+      outer.setAttribute('stroke-width', hierarchy.stroke);
+
+      const dot = document.createElementNS(SVG_NS, 'circle');
+      dot.setAttribute('class', 'dot');
+      dot.setAttribute('r', hierarchy.dot);
+      dot.setAttribute('cy', -node.r + 8);
+      dot.setAttribute('fill', color);
+
+      const label = document.createElementNS(SVG_NS, 'text');
+      label.setAttribute('class', 'label');
+      label.setAttribute('y', node.r + 15);
+      this.applyLabelSizing(label, node.obj.label, node.cls);
+      label.textContent = node.obj.label;
+
+      const sub = document.createElementNS(SVG_NS, 'text');
+      sub.setAttribute('class', 'sub');
+      sub.setAttribute('y', node.r + 28);
+      this.applyLabelSizing(sub, node.obj.note || '', node.cls, true);
+      sub.textContent = node.obj.note || '';
+
+      if (this.state?.visited?.has(node.id) && node.id !== this.state.activeId) {
+        const ring = document.createElementNS(SVG_NS, 'circle');
+        ring.setAttribute('class', 'visited-ring');
+        ring.setAttribute('r', node.r + 5);
+        ring.setAttribute('stroke', color);
+        group.append(ring);
+      }
+
+      if (this.state?.favorites?.has(node.id)) {
+        const star = document.createElementNS(SVG_NS, 'text');
+        star.setAttribute('class', 'favorite-marker');
+        star.setAttribute('x', node.r - 7);
+        star.setAttribute('y', -node.r + 11);
+        star.textContent = '★';
+        group.append(star);
+      }
+
+      group.append(image, shade, outer, dot, label, sub);
+    }
+
+    applyLabelSizing(element, value, cls, secondary = false) {
+      const length = [...value].length;
+      const baseSize = secondary ? 8.5 : 12;
+      const maxWidth = cls === 'root' ? 170 : cls === 'category' ? 122 : 104;
+
+      if (length > 18) element.setAttribute('font-size', secondary ? '7.4' : '9');
+      else if (length > 12) element.setAttribute('font-size', secondary ? '7.8' : '10.2');
+      else element.setAttribute('font-size', String(baseSize));
+
+      const estimatedWidth = length * (secondary ? 6.4 : 7.4);
+      if (estimatedWidth > maxWidth) {
+        element.setAttribute('textLength', String(maxWidth));
+        element.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+      }
+    }
+
+    truncate(value, max) {
+      const chars = [...value];
+      return chars.length > max ? `${chars.slice(0, max - 1).join('')}…` : value;
+    }
+
+    bindNodeEvents(group, node) {
+      group.addEventListener('mouseenter', () => {
+        this.highlight(node.id);
+        this.handlers.preview?.(node.id);
+      });
+      group.addEventListener('mouseleave', () => {
+        this.clearHighlight();
+        this.handlers.preview?.(this.state.activeId);
+      });
+      group.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        this.handlers.details?.(node.id);
+      });
+      group.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          this.handlers.activate?.(node.id);
+        } else if (event.key === 'ContextMenu' || (event.shiftKey && event.key === 'F10')) {
+          event.preventDefault();
+          this.handlers.details?.(node.id);
+        }
+      });
+      group.addEventListener('pointerdown', (event) => {        if (event.button !== 0) return;
+        event.stopPropagation();
+        group.setPointerCapture?.(event.pointerId);
+        this.handlers.dragStart?.(node, event);
+      });
+      group.addEventListener('pointermove', (event) => {
+        this.handlers.dragMove?.(node, event);
+      });
+      group.addEventListener('pointerup', (event) => {
+        this.handlers.dragEnd?.(node, event);
+      });
+      group.addEventListener('pointercancel', (event) => {
+        this.handlers.dragCancel?.(node, event);
+      });
+    }
+
+    updatePositions() {
+      if (!this.scene) return;
+
+      this.scene.nodes.forEach((node) => {
+        const element = this.nodes.querySelector(
+          `[data-id="${CSS.escape(node.id)}"]`
+        );
+        if (element) {
+          element.setAttribute(
+            'transform',
+            `translate(${node.x} ${node.y}) scale(${node.scale || 1})`
+          );
+        }
+      });
+
+      this.links.querySelectorAll('.web-link, .link-hit').forEach((path) => {
+        const source = this.nodeById(path.dataset.a);
+        const target = this.nodeById(path.dataset.b);
+        if (source && target) path.setAttribute('d', this.curve(source, target));
+      });
+    }
+
+    highlight(id) {
+      const connected = new Set([id, ...this.model.neighbors(id)]);
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        const near = connected.has(element.dataset.id);
+        element.classList.toggle('hover-near', near);
+        element.classList.toggle('hover-muted', !near);
+      });
+      let traceIndex = 0;
+      this.links.querySelectorAll('.web-link').forEach((element) => {
+        const connectedLink = element.dataset.a === id || element.dataset.b === id;
+        element.classList.toggle('highlighted', connectedLink);
+        element.classList.toggle('hover-muted', !connectedLink);
+        if (connectedLink) {
+          element.style.setProperty('--trace-delay', `${traceIndex * 58}ms`);
+          traceIndex += 1;
+        } else {
+          element.style.removeProperty('--trace-delay');
+        }
+      });
+    }
+
+    clearHighlight() {
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        element.classList.remove('hover-near', 'hover-muted');
+      });
+      this.links.querySelectorAll('.web-link').forEach((element) => {
+        element.classList.remove('highlighted', 'hover-muted');
+        element.style.removeProperty('--trace-delay');
+      });
+    }
+
+    setState(state) {
+      this.state = state;
+      this.applyFilter();
+      this.applySearch();
+      this.applyExploration();
+      this.applyFavorites();
+    }
+
+    applyFilter() {
+      if (!this.state) return;
+      const family = this.state.familyFilter;
+
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        const shouldDim =
+          family !== 'all' &&
+          element.dataset.family !== family &&
+          element.dataset.id !== 'home';
+        element.classList.toggle('dimmed', shouldDim);
+      });
+
+      this.links.querySelectorAll('.web-link').forEach((element) => {
+        const source = this.nodeById(element.dataset.a);
+        const target = this.nodeById(element.dataset.b);
+        const shouldDim =
+          family !== 'all' &&
+          source?.obj.family !== family &&
+          target?.obj.family !== family &&
+          source?.id !== 'home' &&
+          target?.id !== 'home';
+        element.classList.toggle('dimmed', shouldDim);
+      });
+    }
+
+    applySearch() {
+      if (!this.state) return;
+      const matches = this.state.searchMatches || new Set();
+      const active = matches.size > 0;
+
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        element.classList.toggle('search-match', active && matches.has(element.dataset.id));
+        element.classList.toggle('search-dim', active && !matches.has(element.dataset.id));
+      });
+    }
+
+    applyExploration() {
+      if (!this.state) return;
+      const visited = this.state.visited || new Set();
+      const discovered = this.state.discoveredStars || new Set();
+
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        const id = element.dataset.id;
+        const hidden = element.dataset.hiddenStar === 'true';
+        element.classList.toggle('visited', visited.has(id));
+        element.classList.toggle('undiscovered', hidden && !discovered.has(id));
+        element.classList.toggle('discovered', hidden && discovered.has(id));
+      });
+    }
+
+    applyFavorites() {
+      if (!this.state) return;
+      const favorites = this.state.favorites || new Set();
+      this.nodes.querySelectorAll('.node').forEach((element) => {
+        element.classList.toggle('favorite', favorites.has(element.dataset.id));
+      });
+    }
+
+    spawnTemporaryStar(point) {
+      const group = document.createElementNS(SVG_NS, 'g');
+      group.setAttribute('class', 'temporary-star');
+      group.setAttribute('transform', `translate(${point.x} ${point.y})`);
+
+      const core = document.createElementNS(SVG_NS, 'circle');
+      core.setAttribute('class', 'temporary-star-core');
+      core.setAttribute('r', '3.2');
+
+      const ringA = document.createElementNS(SVG_NS, 'circle');
+      ringA.setAttribute('class', 'temporary-star-ring ring-a');
+      ringA.setAttribute('r', '6');
+
+      const ringB = document.createElementNS(SVG_NS, 'circle');
+      ringB.setAttribute('class', 'temporary-star-ring ring-b');
+      ringB.setAttribute('r', '6');
+
+      group.append(ringA, ringB, core);
+      this.nodes.appendChild(group);
+      window.setTimeout(() => group.remove(), 2800);
+    }
+
+    bindProximity() {
+      this.svg.addEventListener('pointermove', (event) => {
+        if (!this.scene || this.pan) return;
+        this.proximityPoint = this.svgPoint(event);
+        if (this.proximityFrame) return;
+        this.proximityFrame = window.requestAnimationFrame(() => {
+          this.proximityFrame = null;
+          this.updateProximity();
+        });
+      });
+
+      this.svg.addEventListener('pointerleave', () => {
+        this.proximityPoint = null;
+        this.resetProximity();
+      });
+    }
+
+    updateProximity() {
+      if (!this.scene || !this.proximityPoint) return;
+      const radius = 145;
+      const inner = 42;
+
+      this.scene.nodes.forEach((node) => {
+        if (node.cls !== 'micro') return;
+        const element = this.nodes.querySelector(`[data-id="${CSS.escape(node.id)}"]`);
+        if (!element) return;
+        const distance = Math.hypot(node.x - this.proximityPoint.x, node.y - this.proximityPoint.y);
+        const strength = Math.max(0, Math.min(1, (radius - distance) / (radius - inner)));
+        element.style.setProperty('--proximity-opacity', (0.34 + strength * 0.66).toFixed(3));
+        element.style.setProperty('--proximity-scale', (1 + strength * 1.65).toFixed(3));
+        element.style.setProperty('--proximity-label', strength.toFixed(3));
+        element.style.setProperty('--proximity-glow', `${(5 + strength * 9).toFixed(1)}px`);
+        element.style.setProperty('--hidden-opacity', (0.055 + strength * 0.34).toFixed(3));
+        element.classList.toggle('proximity-near', strength > 0.08);
+
+        const hidden = node.obj.hiddenStar;
+        const discovered = this.state?.discoveredStars?.has(node.id);
+      const favorite = this.state?.favorites?.has(node.id);
+        if (hidden && !discovered && strength > 0.74 && !this.discovering.has(node.id)) {
+          this.discovering.add(node.id);
+          this.handlers.discover?.(node.id);
+        }
+      });
+    }
+
+    resetProximity() {
+      this.nodes.querySelectorAll('.node.micro').forEach((element) => {
+        element.style.removeProperty('--proximity-opacity');
+        element.style.removeProperty('--proximity-scale');
+        element.style.removeProperty('--proximity-label');
+        element.style.removeProperty('--proximity-glow');
+        element.style.removeProperty('--hidden-opacity');
+        element.classList.remove('proximity-near');
+      });
+    }
+
+    flashDiscovery(id) {
+      const element = this.nodes.querySelector(`[data-id="${CSS.escape(id)}"]`);
+      if (!element) return;
+      element.classList.remove('just-discovered');
+      void element.getBoundingClientRect();
+      element.classList.add('just-discovered');
+      window.setTimeout(() => element.classList.remove('just-discovered'), 900);
+      this.discovering.delete(id);
+    }
+
+    animateSceneEntry() {
+      this.svg.classList.remove('scene-enter');
+      void this.svg.offsetWidth;
+      this.svg.classList.add('scene-enter');
+      window.setTimeout(() => this.svg.classList.remove('scene-enter'), 430);
+    }
+
+    svgPoint(event) {
+      const point = this.svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const matrix = this.svg.getScreenCTM();
+      const raw = matrix
+        ? point.matrixTransform(matrix.inverse())
+        : { x: 0, y: 0 };
+      return {
+        x: (raw.x - this.transform.x) / this.transform.k,
+        y: (raw.y - this.transform.y) / this.transform.k
+      };
+    }
+
+    bindViewport() {
+      this.svg.addEventListener(
+        'wheel',
+        (event) => {
+          event.preventDefault();
+          const rect = this.svg.getBoundingClientRect();
+          const pointX = ((event.clientX - rect.left) / rect.width) * VIEWBOX.width;
+          const pointY = ((event.clientY - rect.top) / rect.height) * VIEWBOX.height;
+          const factor = event.deltaY < 0 ? 1 + ZOOM.step : 1 - ZOOM.step;
+          this.zoomAt(pointX, pointY, this.transform.k * factor);
+        },
+        { passive: false }
+      );
+
+      this.svg.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0 || event.target.closest?.('.node')) return;
+        this.pan = {
+          x: event.clientX,
+          y: event.clientY,
+          tx: this.transform.x,
+          ty: this.transform.y
+        };
+        this.svg.setPointerCapture?.(event.pointerId);
+      });
+
+      this.svg.addEventListener('pointermove', (event) => {
+        if (!this.pan) return;
+        const rect = this.svg.getBoundingClientRect();
+        this.transform.x =
+          this.pan.tx + ((event.clientX - this.pan.x) / rect.width) * VIEWBOX.width;
+        this.transform.y =
+          this.pan.ty + ((event.clientY - this.pan.y) / rect.height) * VIEWBOX.height;
+        this.applyViewport();
+      });
+
+      this.svg.addEventListener('pointerup', () => {
+        this.pan = null;
+      });
+      this.svg.addEventListener('pointercancel', () => {
+        this.pan = null;
+      });
+      this.svg.addEventListener('dblclick', (event) => {
+        if (event.target.closest?.('.node')) return;
+        const point = this.svgPoint(event);
+        this.spawnTemporaryStar(point);
+        this.handlers.spark?.(point);
+      });
+    }
+
+    zoomAt(pointX, pointY, nextScale) {
+      const scale = Math.max(ZOOM.min, Math.min(ZOOM.max, nextScale));
+      const worldX = (pointX - this.transform.x) / this.transform.k;
+      const worldY = (pointY - this.transform.y) / this.transform.k;
+      this.transform.x = pointX - worldX * scale;
+      this.transform.y = pointY - worldY * scale;
+      this.transform.k = scale;
+      this.applyViewport();
+    }
+
+    zoomBy(delta) {
+      this.zoomAt(
+        VIEWBOX.width / 2,
+        VIEWBOX.height / 2,
+        this.transform.k * (1 + delta)
+      );
+    }
+
+    fit() {
+      this.transform = { x: 0, y: 0, k: 1 };
+      this.applyViewport();
+    }
+
+    applyViewport() {
+      this.viewport.setAttribute(
+        'transform',
+        `translate(${this.transform.x} ${this.transform.y}) scale(${this.transform.k})`
+      );
+    }
+  }
+
+  PW.GraphRenderer = GraphRenderer;
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+<script>(function (PW) {
+  'use strict';
+
+  const model = new PW.GraphModel(PW.Data.ROOT, PW.Data.EXTRA_LINKS, PW.Data.RELATIONS);
+  const layout = new PW.SceneLayout(model);
+  const physics = new PW.PhysicsEngine();
+  const storage = new PW.LayoutStorage(PW.Config.STORAGE_PREFIX);
+  const renderer = new PW.GraphRenderer(model);
+
+  new PW.Starfield(document.getElementById('starfield'));
+
+  const state = {
+    path: ['home'],
+    activeId: 'home',
+    scene: null,
+    dragging: null,
+    motion: storage.get('motion', true),
+    familyFilter: storage.get('familyFilter', 'all'),
+    searchMatches: new Set(),
+    visited: new Set(storage.get('visited', ['home'])),
+    discoveredStars: new Set(storage.get('discoveredStars', [])),
+    favorites: new Set(storage.get('favorites', [])),
+    hidden: document.hidden,
+    linkHovering: false
+  };
+
+  const dom = {
+    back: document.getElementById('backBtn'),
+    home: document.getElementById('homeBtn'),
+    random: document.getElementById('randomBtn'),
+    motion: document.getElementById('motionBtn'),
+    share: document.getElementById('shareBtn'),
+    reset: document.getElementById('resetLayoutBtn'),
+    clearFilter: document.getElementById('clearFilterBtn'),
+    resetDiscovery: document.getElementById('resetDiscoveryBtn'),
+    clearFavorites: document.getElementById('clearFavoritesBtn'),
+    favoriteList: document.getElementById('favoriteList'),
+    favoriteBtn: document.getElementById('favoriteBtn'),
+    visitedCount: document.getElementById('visitedCount'),
+    secretCount: document.getElementById('secretCount'),
+    visitedProgress: document.getElementById('visitedProgress'),
+    filters: document.getElementById('familyFilters'),
+    search: document.getElementById('searchInput'),
+    searchResults: document.getElementById('searchResults'),
+    breadcrumb: document.getElementById('breadcrumb'),
+    status: document.getElementById('statusText'),
+    panelImage: document.getElementById('panelImage'),
+    panelFamily: document.getElementById('panelFamily'),
+    panelTitle: document.getElementById('panelTitle'),
+    panelNote: document.getElementById('panelNote'),
+    panelMeta: document.getElementById('panelMeta'),
+    panelDesc: document.getElementById('panelDesc'),
+    panelFacts: document.getElementById('panelFacts'),
+    panelConnections: document.getElementById('panelConnections'),
+    dialog: document.getElementById('nodeDialog'),
+    dialogFamily: document.getElementById('dialogFamily'),
+    dialogTitle: document.getElementById('dialogTitle'),
+    dialogImage: document.getElementById('dialogImage'),
+    dialogNote: document.getElementById('dialogNote'),
+    dialogDesc: document.getElementById('dialogDesc'),
+    dialogFacts: document.getElementById('dialogFacts'),
+    dialogEnter: document.getElementById('dialogEnter'),
+    relationDialog: document.getElementById('relationDialog'),
+    relationType: document.getElementById('relationType'),
+    relationTitle: document.getElementById('relationTitle'),
+    relationText: document.getElementById('relationText'),
+    relationSource: document.getElementById('relationSource'),
+    relationSourceImage: document.getElementById('relationSourceImage'),
+    relationSourceLabel: document.getElementById('relationSourceLabel'),
+    relationTarget: document.getElementById('relationTarget'),
+    relationTargetImage: document.getElementById('relationTargetImage'),
+    relationTargetLabel: document.getElementById('relationTargetLabel'),
+    toast: document.getElementById('toast')
+  };
+
+  let searchResults = [];
+  let searchIndex = -1;
+  let toastTimer = null;
+  let routing = false;
+  const totalNodes = model.all().length;
+  const totalSecrets = model.all().filter((node) => node.hiddenStar).length;
+
+  function persistExploration() {
+    storage.set('visited', [...state.visited]);
+    storage.set('discoveredStars', [...state.discoveredStars]);
+  }
+
+  function persistFavorites() {
+    storage.set('favorites', [...state.favorites]);
+  }
+
+  function renderFavorites() {
+    dom.favoriteList.innerHTML = '';
+    if (!state.favorites.size) {
+      const empty = document.createElement('p');
+      empty.className = 'favorite-empty';
+      empty.textContent = '还没有收藏节点';
+      dom.favoriteList.appendChild(empty);
+      return;
+    }
+
+    [...state.favorites]
+      .map((id) => model.get(id))
+      .filter(Boolean)
+      .forEach((node) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'favorite-item';
+        button.innerHTML = `<img src="${model.imageFor(node.id)}" alt=""><span><strong>${node.label}</strong><small>${node.note || PW.Config.FAMILY_LABELS[node.family] || '节点'}</small></span>`;
+        button.addEventListener('click', () => navigate(node.id));
+        dom.favoriteList.appendChild(button);
+      });
+  }
+
+  function updateFavoriteButton(id) {
+    const active = state.favorites.has(id);
+    const disabled = id === 'home';
+    dom.favoriteBtn.disabled = disabled;
+    dom.favoriteBtn.textContent = disabled ? '主页不收藏' : (active ? '★ 已收藏' : '☆ 收藏节点');
+    dom.favoriteBtn.classList.toggle('active', active);
+    dom.favoriteBtn.setAttribute('aria-pressed', String(active));
+  }
+
+  function toggleFavorite(id) {
+    if (!model.get(id) || id === 'home') return;
+    if (state.favorites.has(id)) {
+      state.favorites.delete(id);
+      showToast('已取消收藏');
+    } else {
+      state.favorites.add(id);
+      showToast(`已收藏：${model.get(id).label}`);
+    }
+    persistFavorites();
+    renderFavorites();
+    render();
+  }
+
+  function updateExplorationUI() {
+    const visitedCount = state.visited.size;
+    const secretCount = state.discoveredStars.size;
+    dom.visitedCount.textContent = `已探索 ${visitedCount} / ${totalNodes}`;
+    dom.secretCount.textContent = `隐藏星点 ${secretCount} / ${totalSecrets}`;
+    dom.visitedProgress.style.width = `${Math.min(100, (visitedCount / totalNodes) * 100)}%`;
+  }
+
+  function markVisited(id) {
+    if (!model.get(id) || state.visited.has(id)) return false;
+    state.visited.add(id);
+    persistExploration();
+    updateExplorationUI();
+    return true;
+  }
+
+  function discoverStar(id) {
+    const node = model.get(id);
+    if (!node?.hiddenStar || state.discoveredStars.has(id)) return;
+    state.discoveredStars.add(id);
+    persistExploration();
+    renderer.setState(state);
+    renderer.flashDiscovery(id);
+    updateExplorationUI();
+    showToast(`发现隐藏星点：${node.label}`);
+  }
+
+  function showToast(message) {
+    dom.toast.textContent = message;
+    dom.toast.classList.add('show');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => dom.toast.classList.remove('show'), 1800);
+  }
+
+  function parseHash() {
+    const match = window.location.hash.match(/node=([^&]+)/);
+    const id = match ? decodeURIComponent(match[1]) : 'home';
+    return model.get(id) ? id : 'home';
+  }
+
+  function updateHash(id, replace = false) {
+    const hash = `#node=${encodeURIComponent(id)}`;
+    if (window.location.hash === hash) return;
+    const method = replace ? 'replaceState' : 'pushState';
+    window.history[method]({ node: id }, '', hash);
+  }
+
+  function navigate(id, { push = true } = {}) {
+    if (!model.get(id)) return;
+
+    markVisited(id);
+    state.path = model.pathToRoot(id);
+    state.activeId = id;
+    state.scene = layout.build(id);
+    storage.applyScene(state.scene);
+    document.body.dataset.activeNode = id;
+    window.dispatchEvent(new CustomEvent('personalweb:active-node', { detail: { id } }));
+
+    if (push && !routing) updateHash(id);
+    render();
+  }
+
+  function goBack() {
+    if (state.path.length <= 1) return;
+    navigate(state.path[state.path.length - 2]);
+  }
+
+  function render() {
+    dom.back.disabled = state.path.length <= 1;
+    dom.motion.textContent = `漂移：${state.motion ? '开' : '关'}`;
+    dom.motion.setAttribute('aria-pressed', String(state.motion));
+    dom.breadcrumb.textContent = state.path.map((id) => model.get(id).label).join(' / ');
+
+    renderer.setHandlers({
+      activate: (id) => navigate(id),
+      details: openDetails,
+      preview: showPanel,
+      dragStart,
+      dragMove,
+      dragEnd,
+      dragCancel,
+      discover: discoverStar,
+      relation: openRelation,
+      spark: () => showToast('投下一颗临时星点'),
+      linkHover: (active) => { state.linkHovering = active; }
+    });
+
+    renderer.render(state.scene, {
+      activeId: state.activeId,
+      familyFilter: state.familyFilter,
+      searchMatches: state.searchMatches,
+      visited: state.visited,
+      discoveredStars: state.discoveredStars,
+      favorites: state.favorites
+    });
+
+    showPanel(state.activeId);
+    updateFilterButtons();
+    updateExplorationUI();
+    renderFavorites();
+    updateFavoriteButton(state.activeId);
+  }
+
+  function showPanel(id) {
+    const node = model.get(id);
+    if (!node) return;
+
+    dom.panelImage.src = model.imageFor(id);
+    dom.panelImage.alt = node.label;
+    dom.panelFamily.textContent = PW.Config.FAMILY_LABELS[node.family] || '节点';
+    dom.panelTitle.textContent = node.label;
+    dom.panelNote.textContent = node.note || '';
+    dom.panelDesc.textContent = node.desc || '星图中的一个节点。';
+
+    dom.panelFacts.innerHTML = '';
+    (node.facts || []).forEach((text) => {
+      const item = document.createElement('li');
+      item.textContent = text;
+      dom.panelFacts.appendChild(item);
+    });
+
+    dom.panelMeta.innerHTML = '';
+    if (node.meta) {
+      [node.meta.status, node.meta.kind, ...(node.meta.stack || [])]
+        .filter(Boolean)
+        .forEach((value) => {
+          const chip = document.createElement('span');
+          chip.className = 'meta-chip';
+          chip.textContent = value;
+          dom.panelMeta.appendChild(chip);
+        });
+    }
+
+    updateFavoriteButton(id);
+
+    dom.panelConnections.innerHTML = '';
+    model.neighbors(id).slice(0, 12).forEach((otherId) => {
+      const other = model.get(otherId);
+      if (!other) return;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tag';
+      button.textContent = other.label;
+      button.addEventListener('click', () => navigate(otherId));
+      dom.panelConnections.appendChild(button);
+    });
+  }
+
+  function openRelation(a, b) {
+    const source = model.get(a);
+    const target = model.get(b);
+    if (!source || !target) return;
+
+    const relation = model.relationBetween(a, b);
+    dom.relationType.textContent = relation.type;
+    dom.relationTitle.textContent = `${source.label} ↔ ${target.label}`;
+    dom.relationText.textContent = relation.text;
+
+    dom.relationSourceImage.src = model.imageFor(a);
+    dom.relationSourceImage.alt = source.label;
+    dom.relationSourceLabel.textContent = source.label;
+    dom.relationSource.onclick = () => {
+      dom.relationDialog.close();
+      navigate(a);
+    };
+
+    dom.relationTargetImage.src = model.imageFor(b);
+    dom.relationTargetImage.alt = target.label;
+    dom.relationTargetLabel.textContent = target.label;
+    dom.relationTarget.onclick = () => {
+      dom.relationDialog.close();
+      navigate(b);
+    };
+
+    dom.relationDialog.showModal();
+  }
+
+  function randomRoam() {
+    const candidates = model.randomCandidates(state.familyFilter).filter((node) => !state.visited.has(node.id));
+    const pool = candidates.length ? candidates : model.randomCandidates(state.familyFilter);
+    if (!pool.length) {
+      showToast('当前范围没有可漫游节点');
+      return;
+    }
+    const target = pool[Math.floor(Math.random() * pool.length)];
+    navigate(target.id);
+    showToast(`随机漫游：${target.label}`);
+  }
+
+  function openDetails(id) {
+    const node = model.get(id);
+    if (!node) return;
+
+    if (markVisited(id)) renderer.setState(state);
+
+    dom.dialogFamily.textContent = PW.Config.FAMILY_LABELS[node.family] || '节点';
+    dom.dialogTitle.textContent = node.label;
+    dom.dialogImage.src = model.imageFor(id);
+    dom.dialogImage.alt = node.label;
+    dom.dialogNote.textContent = node.note || '';
+    dom.dialogDesc.textContent = node.desc || '';
+
+    dom.dialogFacts.innerHTML = '';
+    (node.facts || []).forEach((text) => {
+      const item = document.createElement('li');
+      item.textContent = text;
+      dom.dialogFacts.appendChild(item);
+    });
+
+    dom.dialogEnter.onclick = () => {
+      dom.dialog.close();
+      navigate(id);
+    };
+    dom.dialog.showModal();
+  }
+
+  function dragStart(node, event) {
+    state.dragging = {
+      id: node.id,
+      startX: event.clientX,
+      startY: event.clientY,
+      moved: false
+    };
+    node.vx = 0;
+    node.vy = 0;
+  }
+
+  function dragMove(node, event) {
+    if (!state.dragging || state.dragging.id !== node.id) return;
+
+    const point = renderer.svgPoint(event);
+    node.x = point.x;
+    node.y = point.y;
+    node.ax = point.x;
+    node.ay = point.y;
+    state.dragging.moved = Math.hypot(
+      event.clientX - state.dragging.startX,
+      event.clientY - state.dragging.startY
+    ) > 4;
+    renderer.updatePositions();
+  }
+
+  function dragEnd(node) {
+    if (!state.dragging || state.dragging.id !== node.id) return;
+
+    const moved = state.dragging.moved;
+    state.dragging = null;
+
+    if (moved) {
+      storage.saveScene(state.scene);
+      showToast('布局已保存');
+    } else {
+      navigate(node.id);
+    }
+  }
+
+  function dragCancel() {
+    state.dragging = null;
+  }
+
+  function setFamily(family) {
+    state.familyFilter = family;
+    storage.set('familyFilter', family);
+    renderer.setState(state);
+    updateFilterButtons();
+    if (dom.search.value.trim()) updateSearch();
+  }
+
+  function updateFilterButtons() {
+    document.querySelectorAll('[data-family]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.family === state.familyFilter);
+    });
+  }
+
+  function clearSearch() {
+    dom.search.value = '';
+    dom.searchResults.hidden = true;
+    dom.searchResults.innerHTML = '';
+    searchResults = [];
+    searchIndex = -1;
+    state.searchMatches = new Set();
+    renderer.setState(state);
+  }
+
+  function drawSearchResults() {
+    state.searchMatches = new Set(searchResults.map((item) => item.node.id));
+    renderer.setState(state);
+    dom.searchResults.innerHTML = '';
+
+    searchResults.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `search-result${index === searchIndex ? ' active' : ''}`;
+      button.innerHTML = `
+        <img src="${model.imageFor(item.node.id)}" alt="">
+        <span>
+          <span class="result-title">${item.node.label}</span>
+          <span class="result-path">${item.path.join(' / ')}</span>
+        </span>`;
+      button.addEventListener('click', () => {
+        navigate(item.node.id);
+        clearSearch();
+      });
+      dom.searchResults.appendChild(button);
+    });
+
+    dom.searchResults.hidden = searchResults.length === 0;
+    const active = dom.searchResults.querySelector('.search-result.active');
+    active?.scrollIntoView({ block: 'nearest' });
+  }
+
+  function updateSearch() {
+    const query = dom.search.value.trim();
+    if (!query) {
+      clearSearch();
+      return;
+    }
+
+    searchResults = model.search(query, state.familyFilter);
+    searchIndex = searchResults.length ? 0 : -1;
+    drawSearchResults();
+  }
+
+  dom.search.addEventListener('input', updateSearch);
+  dom.search.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      searchIndex = Math.min(searchResults.length - 1, searchIndex + 1);
+      drawSearchResults();
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      searchIndex = Math.max(0, searchIndex - 1);
+      drawSearchResults();
+    } else if (event.key === 'Enter' && searchResults[searchIndex]) {
+      event.preventDefault();
+      navigate(searchResults[searchIndex].node.id);      clearSearch();
+    } else if (event.key === 'Escape') {
+      clearSearch();
+    }
+  });
+
+  dom.filters.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-family]');
+    if (button) setFamily(button.dataset.family);
+  });
+
+  document.querySelectorAll('[data-filter-family]').forEach((button) => {
+    button.addEventListener('click', () => setFamily(button.dataset.filterFamily));
+  });
+
+  dom.random.addEventListener('click', randomRoam);
+  dom.home.addEventListener('click', () => navigate('home'));
+  dom.back.addEventListener('click', goBack);
+  dom.favoriteBtn.addEventListener('click', () => toggleFavorite(state.activeId));
+  dom.motion.addEventListener('click', () => {
+    state.motion = !state.motion;
+    storage.set('motion', state.motion);
+    render();
+    showToast(state.motion ? '漂移已开启' : '漂移已暂停');
+  });
+  dom.share.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      showToast('链接已复制');
+    } catch {
+      showToast('当前环境无法自动复制');
+    }
+  });
+  dom.reset.addEventListener('click', () => {
+    storage.clearScene(state.scene.key);
+    navigate(state.activeId, { push: false });
+    showToast('当前布局已重置');
+  });
+  dom.clearFilter.addEventListener('click', () => {
+    setFamily('all');
+    clearSearch();
+  });
+
+  dom.clearFavorites.addEventListener('click', () => {
+    state.favorites = new Set();
+    persistFavorites();
+    renderFavorites();
+    render();
+    showToast('收藏星座已清空');
+  });
+
+  dom.resetDiscovery.addEventListener('click', () => {
+    state.visited = new Set(['home']);
+    state.discoveredStars = new Set();
+    persistExploration();
+    render();
+    showToast('探索足迹已清除');
+  });
+
+  document.getElementById('zoomInBtn').addEventListener('click', () => renderer.zoomBy(0.16));
+  document.getElementById('zoomOutBtn').addEventListener('click', () => renderer.zoomBy(-0.14));
+  document.getElementById('fitBtn').addEventListener('click', () => renderer.fit());
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === '/' && !/input|textarea/i.test(document.activeElement.tagName)) {
+      event.preventDefault();
+      dom.search.focus();
+    }
+    if (event.key === 'Escape' && dom.dialog.open) dom.dialog.close();
+    if (event.key === 'Escape' && dom.relationDialog.open) dom.relationDialog.close();
+  });
+
+  function handleRouteChange() {
+    routing = true;
+    navigate(parseHash(), { push: false });
+    routing = false;
+  }
+
+  window.addEventListener('hashchange', handleRouteChange);
+  window.addEventListener('popstate', handleRouteChange);
+  document.addEventListener('visibilitychange', () => {
+    state.hidden = document.hidden;
+  });
+
+  function tick() {
+    if (state.scene && !state.hidden && state.motion && !state.linkHovering) {
+      physics.step(state.scene, state.dragging, state.motion);
+      renderer.updatePositions();
+    }
+    window.requestAnimationFrame(tick);
+  }
+
+
+
+  PW.App = {
+    model,
+    navigate,
+    showToast,
+    getState: () => ({ activeId: state.activeId, path: [...state.path], familyFilter: state.familyFilter })
+  };
+
+  window.addEventListener('personalweb:navigate', (event) => {
+    const id = event.detail?.id;
+    if (id && model.get(id)) navigate(id);
+  });
+
+  updateExplorationUI();
+  renderFavorites();
+  navigate(parseHash(), { push: false });
+  window.requestAnimationFrame(tick);
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+<script>(function (PW) {
+  'use strict';
+
+  const MAX_HISTORY = 16;
+  const MODEL_KEY = 'personal-web-v19-model';
+
+  function sessionGet(key, fallback = '') {
+    try {
+      return window.sessionStorage?.getItem(key) ?? fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function sessionSet(key, value) {
+    try {
+      window.sessionStorage?.setItem(key, value);
+    } catch {
+      // Session persistence is optional.
+    }
+  }
+
+  function normalize(text) {
+    return String(text || '')
+      .normalize('NFKC')
+      .toLocaleLowerCase()
+      .replace(/[，。！？、；：“”‘’（）《》【】\[\]{}()<>.,!?;:'"`~@#$%^&*_+=|\\/\-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function charBigrams(text) {
+    const compact = normalize(text).replace(/\s+/g, '');
+    const result = new Set();
+    for (let i = 0; i < compact.length - 1; i += 1) result.add(compact.slice(i, i + 2));
+    return result;
+  }
+
+  class PublicKnowledgeBase {
+    constructor(model) {
+      this.model = model;
+      this.items = model.all().map((node) => ({
+        node,
+        text: [node.label, node.note, node.desc, ...(node.facts || []), ...(node.keywords || []), ...model.breadcrumb(node.id)]
+          .filter(Boolean).join(' ')
+      }));
+    }
+
+    search(query, currentId, limit = 7) {
+      const q = normalize(query);
+      const tokens = new Set(q.split(/\s+/).filter(Boolean));
+      const grams = charBigrams(q);
+      return this.items
+        .map(({ node, text }) => {
+          const label = normalize(node.label);
+          const haystack = normalize(text);
+          let score = node.id === currentId ? 24 : 0;
+          if (q && label === q) score += 180;
+          else if (q && label.includes(q)) score += 110;
+          else if (q && haystack.includes(q)) score += 60;
+          tokens.forEach((token) => {
+            if (token.length < 2) return;
+            if (label.includes(token)) score += 36;
+            else if (haystack.includes(token)) score += 14;
+          });
+          const nodeGrams = charBigrams(haystack);
+          grams.forEach((gram) => { if (nodeGrams.has(gram)) score += 3; });
+          return { node, score };
+        })
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score || this.model.depthOf(a.node.id) - this.model.depthOf(b.node.id))
+        .slice(0, limit)
+        .map((item) => item.node);
+    }
+  }
+
+  class LocalLLMTwin {
+    constructor() {
+      this.model = PW.App?.model || new PW.GraphModel(PW.Data.ROOT, PW.Data.EXTRA_LINKS, PW.Data.RELATIONS);
+      this.kb = new PublicKnowledgeBase(this.model);
+      this.history = [];
+      this.models = [];
+      this.selectedModel = sessionGet(MODEL_KEY, '');
+      this.busy = false;
+      this.backendReady = false;
+      this.styleExamplesLoaded = 0;
+      this.bindDom();
+      this.bindEvents();
+      this.showSideTab(location.hostname.endsWith('github.io') ? 'details' : 'twin');
+      this.updateContext();
+      this.addMessage({
+        role: 'assistant',
+        content: '这里是星图分身入口。公开网页只展示星图；完整对话能力在本地版本中通过 Ollama 运行。',
+        sources: []
+      });
+      if (location.hostname.endsWith('github.io')) this.enterPublicStaticMode();
+      else this.checkBackend();
+    }
+
+    bindDom() {
+      this.dom = {
+        open: document.getElementById('twinBtn'),
+        detailsTab: document.getElementById('detailsTabBtn'),
+        twinTab: document.getElementById('twinTabBtn'),
+        detailsPane: document.getElementById('detailsPane'),
+        twinPane: document.getElementById('twinPanel'),
+        toolbarDot: document.getElementById('twinToolbarDot'),
+        statusDot: document.getElementById('twinStatusDot'),
+        statusText: document.getElementById('twinStatusText'),
+        model: document.getElementById('twinModelSelect'),
+        clear: document.getElementById('twinClearBtn'),
+        context: document.getElementById('twinContextBtn'),
+        messages: document.getElementById('twinMessages'),
+        quick: document.getElementById('twinQuickPrompts'),
+        composer: document.getElementById('twinComposer'),
+        input: document.getElementById('twinInput'),
+        send: document.getElementById('twinSendBtn'),
+        setup: document.getElementById('twinSetupHint')
+      };
+    }
+
+    bindEvents() {
+      this.dom.open.addEventListener('click', () => this.showSideTab('twin'));
+      this.dom.twinTab.addEventListener('click', () => this.showSideTab('twin'));
+      this.dom.detailsTab.addEventListener('click', () => this.showSideTab('details'));
+      window.addEventListener('personalweb:active-node', () => this.updateContext());
+
+      this.dom.model.addEventListener('change', () => {
+        this.selectedModel = this.dom.model.value;
+        sessionSet(MODEL_KEY, this.selectedModel);
+        this.updateStatus();
+      });
+
+      this.dom.clear.addEventListener('click', () => {
+        this.history = [];
+        this.renderHistory();
+        this.addMessage({ role: 'assistant', content: '当前会话已经清空，没有写入长期记忆。', sources: [] });
+      });
+
+      this.dom.context.addEventListener('click', () => {
+        const id = this.activeId();
+        if (id) window.dispatchEvent(new CustomEvent('personalweb:navigate', { detail: { id } }));
+      });
+
+      this.dom.quick.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-prompt]');
+        if (!button) return;
+        this.dom.input.value = button.dataset.prompt;
+        this.sendCurrent();
+      });
+
+      this.dom.composer.addEventListener('submit', (event) => {
+        event.preventDefault();
+        this.sendCurrent();
+      });
+
+      this.dom.input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          this.sendCurrent();
+        }
+      });
+
+      this.dom.input.addEventListener('input', () => {
+        this.dom.input.style.height = 'auto';
+        this.dom.input.style.height = `${Math.min(140, this.dom.input.scrollHeight)}px`;
+      });
+    }
+
+    activeId() {
+      return PW.App?.getState?.().activeId || document.body.dataset.activeNode || 'home';
+    }
+
+    showSideTab(tab) {
+      const twin = tab === 'twin';
+      this.dom.twinPane.hidden = !twin;
+      this.dom.detailsPane.hidden = twin;
+      this.dom.twinTab.classList.toggle('active', twin);
+      this.dom.detailsTab.classList.toggle('active', !twin);
+      this.dom.open.classList.toggle('active', twin);
+      this.dom.open.setAttribute('aria-pressed', String(twin));
+      if (twin) setTimeout(() => this.dom.input.focus(), 80);
+    }
+
+    setStatus(kind, text) {
+      [this.dom.statusDot, this.dom.toolbarDot].forEach((dot) => {
+        dot.classList.remove('offline', 'online', 'busy', 'error');
+        dot.classList.add(kind);
+      });
+      this.dom.statusText.textContent = text;
+    }
+
+    updateStatus() {
+      if (this.busy) this.setStatus('busy', '本地模型正在生成');
+      else if (this.backendReady && this.selectedModel) this.setStatus('online', `Ollama · ${this.selectedModel}${this.styleExamplesLoaded ? ` · ${this.styleExamplesLoaded} 条样本` : ''}`);
+      else this.setStatus('offline', '等待本地 Ollama');
+    }
+
+    enterPublicStaticMode() {
+      this.models = [];
+      this.backendReady = false;
+      this.styleExamplesLoaded = 0;
+      this.dom.model.innerHTML = '';
+      const option = document.createElement('option');
+      option.value = '';
+      option.textContent = '本地版可用';
+      this.dom.model.appendChild(option);
+      this.selectedModel = '';
+      this.dom.quick?.querySelectorAll('button').forEach((button) => { button.disabled = true; });
+      this.updateComposerState();
+      this.dom.input.placeholder = '公开网页不连接本地模型';
+      this.dom.setup.hidden = false;
+      this.dom.setup.textContent = '完整数字分身在本地版本中连接 Ollama 运行。';
+      this.setStatus('offline', '公开静态版');
+    }
+
+    async checkBackend() {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 2200);
+      try {
+        const response = await fetch('/api/twin/status', { signal: controller.signal, cache: 'no-store' });
+        if (!response.ok) throw new Error('status failed');
+        const status = await response.json();
+        this.models = status.models || [];
+        this.populateModels(status.default_model || '');
+        this.backendReady = Boolean(status.ollama_available && this.models.length);
+        this.styleExamplesLoaded = Number(status.style_examples_loaded || 0);
+      } catch {
+        this.models = [];
+        this.backendReady = false;
+        this.styleExamplesLoaded = 0;
+        this.populateModels('');
+      } finally {
+        clearTimeout(timer);
+        this.updateStatus();
+        this.updateComposerState();
+      }
+    }
+
+    populateModels(defaultModel) {
+      this.dom.model.innerHTML = '';
+      if (!this.models.length) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = '未检测到本地模型';
+        this.dom.model.appendChild(option);
+        this.selectedModel = '';
+        return;
+      }
+      this.models.forEach((model) => {
+        const name = model.name || model.model;
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = `${name}${model.details?.parameter_size ? ` · ${model.details.parameter_size}` : ''}`;
+        this.dom.model.appendChild(option);
+      });
+      const values = [...this.dom.model.options].map((option) => option.value);
+      if (!values.includes(this.selectedModel)) this.selectedModel = values.includes(defaultModel) ? defaultModel : values[0];
+      this.dom.model.value = this.selectedModel;
+      sessionSet(MODEL_KEY, this.selectedModel);
+    }
+
+    updateComposerState() {
+      const ready = this.backendReady && Boolean(this.selectedModel);
+      this.dom.input.disabled = !ready;
+      this.dom.send.disabled = !ready;
+      this.dom.setup.hidden = ready;
+      this.dom.input.placeholder = ready ? '使用本地 Ollama 模型提问…' : '需要先启动本地服务与 Ollama';
+    }
+
+    updateContext() {
+      const node = this.model.get(this.activeId()) || this.model.get('home');
+      this.dom.context.textContent = node.label;
+      this.dom.context.title = `回到星图节点：${node.label}`;
+    }
+
+    addMessage(message) {
+      this.history.push({
+        role: message.role,
+        content: message.content,
+        sources: message.sources || [],
+        model: message.model || ''
+      });
+      this.history = this.history.slice(-MAX_HISTORY);
+      this.renderHistory();
+    }
+
+    renderHistory() {
+      this.dom.messages.innerHTML = '';
+      this.history.forEach((message) => {
+        const row = document.createElement('div');
+        row.className = `twin-message ${message.role}`;
+        const bubble = document.createElement('div');
+        bubble.className = 'twin-bubble';
+        const content = document.createElement('div');
+        content.className = 'twin-message-text';
+        content.textContent = message.content;
+        bubble.appendChild(content);
+
+        if (message.sources?.length) {
+          const sources = document.createElement('div');
+          sources.className = 'twin-sources';
+          message.sources.forEach((id) => {
+            const node = this.model.get(id);
+            if (!node) return;
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = node.label;
+            button.addEventListener('click', () => window.dispatchEvent(new CustomEvent('personalweb:navigate', { detail: { id } })));
+            sources.appendChild(button);
+          });
+          bubble.appendChild(sources);
+        }
+
+        if (message.role === 'assistant' && message.model) {
+          const mode = document.createElement('span');
+          mode.className = 'twin-message-mode';
+          mode.textContent = `本地模型 · ${message.model}`;
+          bubble.appendChild(mode);
+        }
+        row.appendChild(bubble);
+        this.dom.messages.appendChild(row);
+      });
+      requestAnimationFrame(() => { this.dom.messages.scrollTop = this.dom.messages.scrollHeight; });
+    }
+
+    setTyping(active) {
+      this.busy = active;
+      this.updateStatus();
+      this.dom.input.disabled = active || !this.backendReady;
+      this.dom.send.disabled = active || !this.backendReady;
+      this.dom.messages.querySelector('.twin-typing')?.remove();
+      if (active) {
+        const row = document.createElement('div');
+        row.className = 'twin-message assistant twin-typing';
+        row.innerHTML = '<div class="twin-bubble"><span></span><span></span><span></span></div>';
+        this.dom.messages.appendChild(row);
+      }
+      requestAnimationFrame(() => { this.dom.messages.scrollTop = this.dom.messages.scrollHeight; });
+    }
+
+    retrieveContext(query, activeId) {
+      const nodes = this.kb.search(query, activeId, 7);
+      const active = this.model.get(activeId);
+      const unique = new Map();
+      if (active) unique.set(active.id, active);
+      nodes.forEach((node) => unique.set(node.id, node));
+      return [...unique.values()].slice(0, 8);
+    }
+
+    explicitNavigation(query, context) {
+      if (!/(打开|进入|带我去|带我看|跳到|看看)/.test(query)) return null;
+      return this.kb.search(query, this.activeId(), 2)[0]?.id || context[0]?.id || null;
+    }
+
+    async sendCurrent() {
+      if (this.busy || !this.backendReady || !this.selectedModel) return;
+      const query = this.dom.input.value.trim();
+      if (!query) return;
+      this.dom.input.value = '';
+      this.dom.input.style.height = 'auto';
+      this.addMessage({ role: 'user', content: query });
+      this.setTyping(true);
+      try {
+        const activeId = this.activeId();
+        const context = this.retrieveContext(query, activeId);
+        const answer = await this.askLocalModel(query, context, activeId);
+        this.addMessage({
+          role: 'assistant',
+          content: answer.message || '本地模型没有返回内容。',
+          sources: context.map((node) => node.id).slice(0, 5),
+          model: answer.model || this.selectedModel
+        });
+        const navigateId = this.explicitNavigation(query, context);
+        if (navigateId) setTimeout(() => window.dispatchEvent(new CustomEvent('personalweb:navigate', { detail: { id: navigateId } })), 300);
+      } catch (error) {
+        this.addMessage({
+          role: 'assistant',
+          content: `本地模型调用失败：${error.message || '未知错误'}。请确认 Ollama 正在运行，并且所选模型已经安装。`,
+          sources: []
+        });
+        this.backendReady = false;
+        this.updateComposerState();
+      } finally {
+        this.setTyping(false);
+      }
+    }
+
+    async askLocalModel(query, context, activeId) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 120000);
+      try {
+        const response = await fetch('/api/twin/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: query,
+            model: this.selectedModel,
+            active_node: activeId,
+            context: context.map((node) => ({
+              id: node.id,
+              label: node.label,
+              family: node.family,
+              note: node.note || '',
+              desc: node.desc || '',
+              facts: node.facts || [],
+              path: this.model.breadcrumb(node.id)
+            })),
+            history: this.history.slice(-10).map(({ role, content }) => ({ role, content }))
+          }),
+          signal: controller.signal
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || '本地模型请求失败');
+        return result;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+  }
+
+  function start() {
+    if (!PW.Data?.ROOT || !PW.GraphModel) return;
+    PW.DigitalTwin = new LocalLLMTwin();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})(window.PersonalWeb = window.PersonalWeb || {});
+</script>
+</body>
+</html>
