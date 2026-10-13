@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "apiBase": "https://personal-public-twin.kakinoofficial.workers.dev",
+  "turnstileSiteKey": "0x4AAAAAAFV1mBzD0QMRspyE",
+  "displayName": "公开对话分身"
+}
