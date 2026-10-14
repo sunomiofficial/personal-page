@@ -668,10 +668,8 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
     }
 
     graphImageFor(id) {
-      if (id === 'acfv') return 'https://api.iconify.design/lucide/clapperboard.svg?color=%23eaf2ff';
-      if (id === 'ctcp') return 'https://api.iconify.design/lucide/network.svg?color=%23eaf2ff';
       const node = this.get(id);
-      return node?.asset || `./assets/nodes/${id}.svg`;
+      return node?.cover || node?.asset || `./assets/nodes/${id}.svg`;
     }
 
     imageFitFor(id) {
@@ -810,9 +808,8 @@ PersonalWeb.GraphModel.prototype.imageFor = function(id){
   return (node && node.cover) || window.__PERSONAL_WEB_ASSETS[id] || (node && node.asset) || "";
 };
 PersonalWeb.GraphModel.prototype.graphImageFor = function(id){
-  if (id === "acfv") return "https://api.iconify.design/lucide/clapperboard.svg?color=%23eaf2ff";
-  if (id === "ctcp") return "https://api.iconify.design/lucide/network.svg?color=%23eaf2ff";
-  return window.__PERSONAL_WEB_ASSETS[id] || "";
+  const node = this.get(id);
+  return (node && node.cover) || window.__PERSONAL_WEB_ASSETS[id] || "";
 };
 PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
   const node = this.get(id);
@@ -2729,7 +2726,7 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
   'use strict';
   if(!location.hostname.endsWith('github.io')) return;
 
-  const MAX_HISTORY=12;
+  const MAX_HISTORY=24;
   const CONFIG_PATH='./public-twin-config.json';
   const TURNSTILE_SRC='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
@@ -2748,23 +2745,23 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
     }
     bindEvents(){
       this.dom.open?.addEventListener('click',()=>this.showSideTab('twin')); this.dom.twinTab?.addEventListener('click',()=>this.showSideTab('twin')); this.dom.detailsTab?.addEventListener('click',()=>this.showSideTab('details'));
-      this.dom.clear?.addEventListener('click',()=>{this.history=[];this.renderHistory();this.addMessage('assistant','当前访客会话已清空。不会修改分身的语料库。')});
+      this.dom.clear?.addEventListener('click',()=>{this.history=[];this.renderHistory();this.addMessage('assistant','清掉了，继续聊就行。')});
       this.dom.quick?.addEventListener('click',e=>{const b=e.target.closest('[data-prompt]');if(!b||b.disabled)return;this.dom.input.value=b.dataset.prompt;this.sendCurrent()});
       this.dom.composer?.addEventListener('submit',e=>{e.preventDefault();this.sendCurrent()}); this.dom.input?.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();this.sendCurrent()}});
     }
     preparePanel(){
       this.showSideTab('twin');
-      const kicker=this.dom.twinPane?.querySelector('.panel-kicker'); if(kicker)kicker.textContent='PUBLIC TWIN';
-      const h2=this.dom.twinPane?.querySelector('h2'); if(h2)h2.textContent='和数字分身聊聊';
-      const privacy=this.dom.twinPane?.querySelector('.twin-privacy-card'); if(privacy)privacy.innerHTML='<strong>它从历史对话里学表达方式</strong><span>会参考经过筛选的公开对话片段：怎么追问、怎么纠正、怎样把问题讲具体；不会从这张星图里猜人格。</span>';
+      const kicker=this.dom.twinPane?.querySelector('.panel-kicker'); if(kicker)kicker.textContent='CONVERSATION TWIN';
+      const h2=this.dom.twinPane?.querySelector('h2'); if(h2)h2.textContent='和分身聊聊';
+      const privacy=this.dom.twinPane?.querySelector('.twin-privacy-card'); if(privacy)privacy.innerHTML='<strong>基于历史对话的公开分身</strong><span>平时就正常聊天；只有需要补说话习惯或回忆过去观点时，才会参考筛选后的历史对话。不是本人实时回复。</span>';
       this.dom.accessCard && (this.dom.accessCard.hidden=true);
       if(this.dom.model?.closest('label')) this.dom.model.closest('label').hidden=true;
       if(this.dom.mode?.closest('label')) this.dom.mode.closest('label').hidden=true;
       if(this.dom.rebuild) this.dom.rebuild.hidden=true; if(this.dom.lock)this.dom.lock.hidden=true;
-      if(this.dom.contextLabel)this.dom.contextLabel.textContent='公开语料'; if(this.dom.context)this.dom.context.textContent='准备连接…';
-      if(this.dom.setup){this.dom.setup.hidden=false;this.dom.setup.textContent='公开分身正在准备。'}
-      const note=this.dom.twinPane?.querySelector('.twin-local-note'); if(note)note.textContent='访客聊天不会写入你的历史语料库；回答由服务端安全代理调用 Qwen。';
-      this.addMessage('assistant','可以直接问我为什么喜欢某种玩法、作品或技术，也可以随便聊。回答会参考筛选后的历史对话，但不是本人实时回复。');
+      if(this.dom.contextLabel)this.dom.contextLabel.textContent='聊天'; if(this.dom.context)this.dom.context.textContent='准备连接…';
+      if(this.dom.setup){this.dom.setup.hidden=false;this.dom.setup.textContent='正在连接分身。'}
+      const note=this.dom.twinPane?.querySelector('.twin-local-note'); if(note)note.textContent='这是公开数字分身，不是本人实时回复。';
+      this.addMessage('assistant','你好，随便聊就行。想问什么？');
       this.setReady(false);
     }
     showSideTab(tab){const twin=tab==='twin';if(this.dom.twinPane)this.dom.twinPane.hidden=!twin;if(this.dom.detailsPane)this.dom.detailsPane.hidden=twin;this.dom.twinTab?.classList.toggle('active',twin);this.dom.detailsTab?.classList.toggle('active',!twin);this.dom.open?.classList.toggle('active',twin);this.dom.open?.setAttribute('aria-pressed',String(twin));}
@@ -2775,7 +2772,7 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
       catch(e){this.fail(`公开分身配置读取失败：${e.message}`);return;}
       if(!this.config?.enabled||!this.config.apiBase||!this.config.turnstileSiteKey){this.fail('公开分身后端尚未启用。星图其他功能仍可正常使用。',false);return;}
       this.config.apiBase=String(this.config.apiBase).replace(/\/$/,'');
-      try{await this.loadTurnstile();await this.checkStatus();this.setReady(true);this.setStatus('online','公开分身可用');this.dom.setup.hidden=true;}
+      try{await this.loadTurnstile();await this.checkStatus();this.setReady(true);this.setStatus('online','在线');this.dom.setup.hidden=true;}
       catch(e){this.fail(`公开分身暂时不可用：${e.message}`);}
     }
     async loadTurnstile(){
@@ -2784,7 +2781,7 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
       const holder=document.createElement('div');holder.id='publicTwinTurnstile';holder.className='public-twin-turnstile';this.dom.composer.parentNode.insertBefore(holder,this.dom.composer);
       this.turnstileWidget=window.turnstile.render(holder,{sitekey:this.config.turnstileSiteKey,theme:'dark',size:'flexible',appearance:'interaction-only',execution:'execute',callback:(token)=>{const resolve=this.turnstileResolve;this.turnstileResolve=null;this.turnstileReject=null;resolve&&resolve(token);},'error-callback':()=>{const reject=this.turnstileReject;this.turnstileResolve=null;this.turnstileReject=null;reject&&reject(new Error('人机验证失败'));}});
     }
-    async checkStatus(){const r=await fetch(`${this.config.apiBase}/api/status`,{headers:{Accept:'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error(d.error||`后端状态 ${r.status}`);if(this.dom.context)this.dom.context.textContent=`${Number(d.corpus_messages||0)} 条公开表达可参考`;}
+    async checkStatus(){const r=await fetch(`${this.config.apiBase}/api/status`,{headers:{Accept:'application/json'}});const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok)throw new Error(d.error||`后端状态 ${r.status}`);if(this.dom.context)this.dom.context.textContent='可以直接聊';}
     async token(){
       if(!window.turnstile||this.turnstileWidget===null)throw new Error('Turnstile 未就绪');
       if(this.turnstileResolve)throw new Error('验证正在进行');
@@ -2792,12 +2789,31 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
     }
     addMessage(role,content,meta=''){this.history.push({role,content,meta});this.history=this.history.slice(-MAX_HISTORY);this.renderHistory();}
     renderHistory(){if(!this.dom.messages)return;this.dom.messages.innerHTML='';for(const m of this.history){const row=document.createElement('div');row.className=`twin-message ${m.role}`;const bubble=document.createElement('div');bubble.className='twin-bubble';const c=document.createElement('div');c.className='twin-message-text';c.textContent=m.content;bubble.appendChild(c);if(m.meta){const meta=document.createElement('span');meta.className='twin-message-mode';meta.textContent=m.meta;bubble.appendChild(meta)}row.appendChild(bubble);this.dom.messages.appendChild(row)}requestAnimationFrame(()=>this.dom.messages.scrollTop=this.dom.messages.scrollHeight);}
-    setBusy(b){this.busy=b;this.setReady(!b&&!!this.config?.enabled);if(b)this.setStatus('busy','Qwen 正在生成');else if(this.config?.enabled)this.setStatus('online','公开分身可用');}
+    setBusy(b){this.busy=b;this.setReady(!b&&!!this.config?.enabled);if(b)this.setStatus('busy','正在回复');else if(this.config?.enabled)this.setStatus('online','在线');}
     async sendCurrent(){
-      if(this.busy||!this.config?.enabled)return;const q=(this.dom.input?.value||'').trim();if(!q)return;if(q.length>1200){this.addMessage('assistant','一次最多发送 1200 个字符。');return;}this.dom.input.value='';this.addMessage('user',q);this.setBusy(true);
-      try{const turnstileToken=await this.token();const r=await fetch(`${this.config.apiBase}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,turnstileToken,history:this.history.slice(-8).filter(x=>x.role==='user'||x.role==='assistant').map(({role,content})=>({role,content}))})});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||`请求失败 ${r.status}`);this.addMessage('assistant',d.message||'没有返回内容。',[d.model?`Qwen · ${d.model}`:'',d.mode?`模式 ${d.mode}`:''].filter(Boolean).join(' · '));}
-      catch(e){this.addMessage('assistant',`公开分身暂时无法回答：${e.message}`);}
-      finally{this.setBusy(false);}
+      if(this.busy||!this.config?.enabled)return;
+      const q=(this.dom.input?.value||'').trim();
+      if(!q)return;
+      if(q.length>1200){this.addMessage('assistant','这条有点长，分两条发给我吧。');return;}
+      const previousHistory=this.history.slice(-16).filter(x=>x.role==='user'||x.role==='assistant').map(({role,content})=>({role,content}));
+      this.dom.input.value='';
+      this.addMessage('user',q);
+      this.setBusy(true);
+      try{
+        const turnstileToken=await this.token();
+        const r=await fetch(`${this.config.apiBase}/api/chat`,{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({message:q,turnstileToken,history:previousHistory})
+        });
+        const d=await r.json().catch(()=>({}));
+        if(!r.ok)throw new Error(d.error||`请求失败 ${r.status}`);
+        this.addMessage('assistant',d.message||'我刚才没生成出来，再发一次？');
+      }catch(e){
+        this.addMessage('assistant',`这次没连上：${e.message}`);
+      }finally{
+        this.setBusy(false);
+      }
     }
     fail(message,error=true){this.setReady(false);this.setStatus(error?'error':'offline',error?'公开分身不可用':'公开分身待启用');if(this.dom.setup){this.dom.setup.hidden=false;this.dom.setup.textContent=message;}}
   }
