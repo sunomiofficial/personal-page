@@ -334,7 +334,7 @@ kbd{font-size:11px;color:var(--muted);border:1px solid var(--border);border-bott
 </nav>
 <div class="sidebar-actions">
 <button id="sidebarRandomBtn" type="button">✦ 随机走一条线</button>
-<button id="sidebarFitBtn" type="button">◎ 看完整星图</button>
+<button id="sidebarFitBtn" type="button">◎ 回到完整星图</button>
 </div>
 <section class="sidebar-section discovery-block">
 <div class="discovery-head">
@@ -2566,7 +2566,15 @@ PersonalWeb.GraphModel.prototype.imageFitFor = function(id){
   dom.sidebarRandom?.addEventListener('click', randomRoam);
   dom.sidebarHome?.addEventListener('click', () => { setFamily('all'); navigate('home'); });
   dom.sidebarCurrent?.addEventListener('click', () => openDetails(state.activeId));
-  dom.sidebarFit?.addEventListener('click', () => renderer.fit());
+  dom.sidebarFit?.addEventListener('click', () => {
+    setFamily('all');
+    clearSearch();
+    navigate('home');
+    window.requestAnimationFrame(() => {
+      renderer.fit();
+      showToast('已回到完整星图');
+    });
+  });
   dom.home.addEventListener('click', () => navigate('home'));
   dom.back.addEventListener('click', goBack);
   dom.favoriteBtn.addEventListener('click', () => toggleFavorite(state.activeId));
